@@ -1,0 +1,607 @@
+fileFormatVersion: 2
+guid: f32b115efb4b17d42896eed553f275ad
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Factice001
+    100002: Factice002
+    100004: Factice003
+    100006: Factice004
+    100008: Factice005
+    100010: Factice006
+    100012: Factice015
+    100014: Factice016
+    100016: Factice017
+    100018: Factice018
+    100020: Factice019
+    100022: Factice020
+    100024: Factice021
+    100026: Factice028
+    100028: Factice032
+    100030: //RootNode
+    100032: GIANT_CRAB
+    100034: GIANT_CRAB_ARM_L_1
+    100036: GIANT_CRAB_ARM_R_1
+    100038: GIANT_CRAB_CLAW_A_nub
+    100040: GIANT_CRAB_CLAW_L_A
+    100042: GIANT_CRAB_CLAW_L_B
+    100044: GIANT_CRAB_CLAW_L_B_nub
+    100046: GIANT_CRAB_CLAW_L_B_nub 1
+    100048: GIANT_CRAB_CLAW_R_A
+    100050: GIANT_CRAB_CLAW_R_A_nub
+    100052: GIANT_CRAB_CLAW_R_B
+    100054: GIANT_CRAB_FOREARM_L_2
+    100056: GIANT_CRAB_FOREARM_R_2
+    100058: GIANT_CRAB_LEG_L_1_A
+    100060: GIANT_CRAB_LEG_L_1_B
+    100062: GIANT_CRAB_LEG_L_1_C
+    100064: GIANT_CRAB_LEG_L_1_D
+    100066: GIANT_CRAB_LEG_L_1_nub
+    100068: GIANT_CRAB_LEG_L_2_A
+    100070: GIANT_CRAB_LEG_L_2_B
+    100072: GIANT_CRAB_LEG_L_2_C
+    100074: GIANT_CRAB_LEG_L_2_D
+    100076: GIANT_CRAB_LEG_L_2_nub
+    100078: GIANT_CRAB_LEG_L_3_A
+    100080: GIANT_CRAB_LEG_L_3_B
+    100082: GIANT_CRAB_LEG_L_3_C
+    100084: GIANT_CRAB_LEG_L_3_D
+    100086: GIANT_CRAB_LEG_L_3_nub
+    100088: GIANT_CRAB_LEG_L_4_A
+    100090: GIANT_CRAB_LEG_L_4_B
+    100092: GIANT_CRAB_LEG_L_4_C
+    100094: GIANT_CRAB_LEG_L_4_D
+    100096: GIANT_CRAB_LEG_L_4_nub
+    100098: GIANT_CRAB_LEG_R_1_A
+    100100: GIANT_CRAB_LEG_R_1_B
+    100102: GIANT_CRAB_LEG_R_1_C
+    100104: GIANT_CRAB_LEG_R_1_D
+    100106: GIANT_CRAB_LEG_R_1_nub
+    100108: GIANT_CRAB_LEG_R_2_A
+    100110: GIANT_CRAB_LEG_R_2_B
+    100112: GIANT_CRAB_LEG_R_2_C
+    100114: GIANT_CRAB_LEG_R_2_D
+    100116: GIANT_CRAB_LEG_R_2_nub
+    100118: GIANT_CRAB_LEG_R_3_A
+    100120: GIANT_CRAB_LEG_R_3_B
+    100122: GIANT_CRAB_LEG_R_3_C
+    100124: GIANT_CRAB_LEG_R_3_D
+    100126: GIANT_CRAB_LEG_R_3_nub
+    100128: GIANT_CRAB_LEG_R_4_A
+    100130: GIANT_CRAB_LEG_R_4_B
+    100132: GIANT_CRAB_LEG_R_4_C
+    100134: GIANT_CRAB_LEG_R_4_D
+    100136: GIANT_CRAB_LEG_R_4_nub
+    100138: GIANT_CRAB_MOUTH_ARMS_L_1
+    100140: GIANT_CRAB_MOUTH_ARMS_L_2
+    100142: GIANT_CRAB_MOUTH_ARMS_L_nub
+    100144: GIANT_CRAB_MOUTH_ARMS_R_1
+    100146: GIANT_CRAB_MOUTH_ARMS_R_2
+    100148: GIANT_CRAB_MOUTH_ARMS_R_nub
+    100150: GIANT_CRAB_ROOT_
+    100152: GIANT_CRAB_SHELL
+    100154: GIANT_CRAB_Shell_nub
+    400000: Factice001
+    400002: Factice002
+    400004: Factice003
+    400006: Factice004
+    400008: Factice005
+    400010: Factice006
+    400012: Factice015
+    400014: Factice016
+    400016: Factice017
+    400018: Factice018
+    400020: Factice019
+    400022: Factice020
+    400024: Factice021
+    400026: Factice028
+    400028: Factice032
+    400030: GIANT_CRAB
+    400032: //RootNode
+    400034: GIANT_CRAB_ARM_L_1
+    400036: GIANT_CRAB_ARM_R_1
+    400038: GIANT_CRAB_CLAW_A_nub
+    400040: GIANT_CRAB_CLAW_L_A
+    400042: GIANT_CRAB_CLAW_L_B
+    400044: GIANT_CRAB_CLAW_L_B_nub
+    400046: GIANT_CRAB_CLAW_L_B_nub 1
+    400048: GIANT_CRAB_CLAW_R_A
+    400050: GIANT_CRAB_CLAW_R_A_nub
+    400052: GIANT_CRAB_CLAW_R_B
+    400054: GIANT_CRAB_FOREARM_L_2
+    400056: GIANT_CRAB_FOREARM_R_2
+    400058: GIANT_CRAB_LEG_L_1_A
+    400060: GIANT_CRAB_LEG_L_1_B
+    400062: GIANT_CRAB_LEG_L_1_C
+    400064: GIANT_CRAB_LEG_L_1_D
+    400066: GIANT_CRAB_LEG_L_1_nub
+    400068: GIANT_CRAB_LEG_L_2_A
+    400070: GIANT_CRAB_LEG_L_2_B
+    400072: GIANT_CRAB_LEG_L_2_C
+    400074: GIANT_CRAB_LEG_L_2_D
+    400076: GIANT_CRAB_LEG_L_2_nub
+    400078: GIANT_CRAB_LEG_L_3_A
+    400080: GIANT_CRAB_LEG_L_3_B
+    400082: GIANT_CRAB_LEG_L_3_C
+    400084: GIANT_CRAB_LEG_L_3_D
+    400086: GIANT_CRAB_LEG_L_3_nub
+    400088: GIANT_CRAB_LEG_L_4_A
+    400090: GIANT_CRAB_LEG_L_4_B
+    400092: GIANT_CRAB_LEG_L_4_C
+    400094: GIANT_CRAB_LEG_L_4_D
+    400096: GIANT_CRAB_LEG_L_4_nub
+    400098: GIANT_CRAB_LEG_R_1_A
+    400100: GIANT_CRAB_LEG_R_1_B
+    400102: GIANT_CRAB_LEG_R_1_C
+    400104: GIANT_CRAB_LEG_R_1_D
+    400106: GIANT_CRAB_LEG_R_1_nub
+    400108: GIANT_CRAB_LEG_R_2_A
+    400110: GIANT_CRAB_LEG_R_2_B
+    400112: GIANT_CRAB_LEG_R_2_C
+    400114: GIANT_CRAB_LEG_R_2_D
+    400116: GIANT_CRAB_LEG_R_2_nub
+    400118: GIANT_CRAB_LEG_R_3_A
+    400120: GIANT_CRAB_LEG_R_3_B
+    400122: GIANT_CRAB_LEG_R_3_C
+    400124: GIANT_CRAB_LEG_R_3_D
+    400126: GIANT_CRAB_LEG_R_3_nub
+    400128: GIANT_CRAB_LEG_R_4_A
+    400130: GIANT_CRAB_LEG_R_4_B
+    400132: GIANT_CRAB_LEG_R_4_C
+    400134: GIANT_CRAB_LEG_R_4_D
+    400136: GIANT_CRAB_LEG_R_4_nub
+    400138: GIANT_CRAB_MOUTH_ARMS_L_1
+    400140: GIANT_CRAB_MOUTH_ARMS_L_2
+    400142: GIANT_CRAB_MOUTH_ARMS_L_nub
+    400144: GIANT_CRAB_MOUTH_ARMS_R_1
+    400146: GIANT_CRAB_MOUTH_ARMS_R_2
+    400148: GIANT_CRAB_MOUTH_ARMS_R_nub
+    400150: GIANT_CRAB_ROOT_
+    400152: GIANT_CRAB_SHELL
+    400154: GIANT_CRAB_Shell_nub
+    4300000: GIANT_CRAB
+    7400000: idle
+    7400002: walkRight
+    7400004: walkLeft
+    7400006: ClawAttackLeft
+    7400008: clawAttackRight
+    7400010: 2HitComboClawsAttack
+    7400012: doubleClawsAttack
+    7400014: 3HitComboClawsAttack
+    7400016: walkRightClawAttack
+    7400018: walkLeftClawAttack
+    7400020: walkRightDoubleClawsAttack
+    7400022: walkLeftDoubleClawsAttack
+    7400024: getHit
+    7400026: death
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: GIANT_CRAB
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 5
+      lastFrame: 64
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: walkRight
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 99
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: walkLeft
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 139
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: ClawAttackLeft
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 179
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: clawAttackRight
+      takeName: Take 001
+      firstFrame: 185
+      lastFrame: 214
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: 2HitComboClawsAttack
+      takeName: Take 001
+      firstFrame: 220
+      lastFrame: 274
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: doubleClawsAttack
+      takeName: Take 001
+      firstFrame: 280
+      lastFrame: 309
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: 3HitComboClawsAttack
+      takeName: Take 001
+      firstFrame: 315
+      lastFrame: 384
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: walkRightClawAttack
+      takeName: Take 001
+      firstFrame: 390
+      lastFrame: 419
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: walkLeftClawAttack
+      takeName: Take 001
+      firstFrame: 425
+      lastFrame: 454
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: walkRightDoubleClawsAttack
+      takeName: Take 001
+      firstFrame: 388.899994
+      lastFrame: 489
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: walkLeftDoubleClawsAttack
+      takeName: Take 001
+      firstFrame: 423.899994
+      lastFrame: 524
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: getHit
+      takeName: Take 001
+      firstFrame: 530
+      lastFrame: 559
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: death
+      takeName: Take 001
+      firstFrame: 565
+      lastFrame: 604
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
