@@ -9,7 +9,6 @@ public class VisorObject : MonoBehaviour
     public Material onehundredfifty;
     public Material none;
 
-    public SpriteRenderer target;
     public Transform particleSystem;
 
     private Text itemText;
@@ -25,8 +24,6 @@ public class VisorObject : MonoBehaviour
             GetComponent<Renderer>().material.color = none.color;
         }
 
-        target.material.color = Color.clear;
-        target.GetComponent<ItemInspection>().shouldCheck = false;
         itemText = GameObject.FindGameObjectWithTag("ItemText").GetComponent<Text>();
     }
 
@@ -47,13 +44,6 @@ public class VisorObject : MonoBehaviour
             }
 
             particleSystem.gameObject.SetActive(true);
-            target.GetComponent<ItemInspection>().shouldCheck = true;
-
-            if(target)
-            {
-                float lerpTarget = Mathf.PingPong(Time.fixedDeltaTime, 10.0f);
-                target.material.color = Color.Lerp(target.material.color, target.GetComponent<ItemInspection>().selectColor, lerpTarget);
-            }
         }
         else
         {
@@ -69,25 +59,6 @@ public class VisorObject : MonoBehaviour
             }
 
             particleSystem.gameObject.SetActive(false);
-
-            if(target)
-            {
-                if (target.GetComponent<ItemInspection>().overItem)
-                {
-                    target.GetComponent<ItemInspection>().overItem = false;
-                    target.GetComponent<ItemInspection>().selectColor = Color.white;
-                    target.transform.localScale = target.GetComponent<ItemInspection>().startingScale;
-                    itemText.text = "";
-                }
-
-                target.GetComponent<ItemInspection>().shouldCheck = false;
-
-                float lerpTarget = Mathf.PingPong(Time.fixedDeltaTime, 10.0f);
-                target.material.color = Color.Lerp(target.material.color, Color.clear, lerpTarget);
-            }
-
-            target.transform.GetChild(0).gameObject.SetActive(false);
-            target.transform.GetChild(1).gameObject.SetActive(false);
         }
 	}
 }

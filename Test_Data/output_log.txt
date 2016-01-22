@@ -17,13 +17,17 @@ Loading E:\AGD\Test\Test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: E:\AGD\Test\Test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading E:\AGD\Test\Test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: E:\AGD\Test\Test_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.059 seconds
+- Completed reload, in  0.051 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: E:\AGD\Test\Test_Data\Managed\System.dll (this message is harmless)
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
 WARNING: Shader Unsupported: 'Outlined/Diffuse' - Pass 'OUTLINE' has no vertex shader
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1b80 -> priority: 1 
-  Thread -> id: 2a04 -> priority: 1 
+  Thread -> id: 2410 -> priority: 1 
+  Thread -> id: 2f34 -> priority: 1 

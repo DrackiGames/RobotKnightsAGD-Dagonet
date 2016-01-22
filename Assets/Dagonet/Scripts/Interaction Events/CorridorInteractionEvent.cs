@@ -10,6 +10,8 @@ public class CorridorInteractionEvent : InteractionEvent
 
     public override IEnumerator interactionEvents()
     {
+        yield return new WaitForSeconds(0.3f);
+
         CameraSwitchManager CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
         CSM.isFadingIn = false;
 

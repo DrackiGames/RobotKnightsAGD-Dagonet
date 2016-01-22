@@ -14,6 +14,15 @@ public class TerminalButton : MonoBehaviour
         startingScale = transform.localScale;
     }
 
+    void Update()
+    {
+        if(!mainTerminal.inUse)
+        {
+            transform.localScale = startingScale;
+            GetComponent<SpriteRenderer>().color = Color.gray;
+        }
+    }
+
     void OnMouseEnter()
     {
         if(mainTerminal.inUse)

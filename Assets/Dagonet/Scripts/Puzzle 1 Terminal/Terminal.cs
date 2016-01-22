@@ -16,6 +16,9 @@ public class Terminal : MonoBehaviour
 
     public string previousCamera;
 
+    public MeshCollider terminal;
+    public Target target;
+
 	void Start () 
     {
         codeCombination = "";
@@ -51,9 +54,21 @@ public class Terminal : MonoBehaviour
 
         if(inUse)
         {
+            if (terminal.enabled)
+            {
+                terminal.enabled = false;
+            }
+            target.resetItemTextCursorAndHint();
             if(Input.GetKeyDown(KeyCode.Escape))
             {
                 StartCoroutine(exitTerminal());
+            }
+        }
+        else
+        {
+            if(!terminal.enabled)
+            {
+                terminal.enabled = true;
             }
         }
 	}
@@ -89,7 +104,7 @@ public class Terminal : MonoBehaviour
 
         yield return new WaitForSeconds(0.3f);
 
-        GameObject.Find("SceneCamera").GetComponent<Camera>().enabled = true;
+        GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
         GameObject.Find("TerminalCamera").GetComponent<Camera>().enabled = false;
 
         inUse = false;

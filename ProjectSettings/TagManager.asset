@@ -9,6 +9,8 @@ TagManager:
   - ItemTarget
   - VisorText
   - CameraSwitchManager
+  - CursorManager
+  - QuestTextManager
   layers:
   - Default
   - TransparentFX
