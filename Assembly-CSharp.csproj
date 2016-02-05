@@ -45,15 +45,18 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Additional Assets\Simple Particle Ribbon\Scripts\ReverseNormals.cs" />
      <Compile Include="Assets\Dagonet\Scripts\CameraSwitchManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\ChoiceManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\CursorManager.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Cutscene Events\CharacterMoveAround.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Cutscene Events\CutSceneEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\FixVisorText.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\InspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\CorridorInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\DoorInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\InteractionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Interaction Events\ParchmentBoardInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\TerminalInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\ItemInspection.cs" />
      <Compile Include="Assets\Dagonet\Scripts\ModelReverseNormals.cs" />
@@ -61,13 +64,13 @@
      <Compile Include="Assets\Dagonet\Scripts\Movie.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 1 Terminal\Terminal.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 1 Terminal\TerminalButton.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Puzzle 1 Terminal\TerminalCodePaper.cs" />
      <Compile Include="Assets\Dagonet\Scripts\QuestTextManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\State Behaviours\VisorDownEnd.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Target.cs" />
      <Compile Include="Assets\Dagonet\Scripts\VisorDownStop.cs" />
      <Compile Include="Assets\Dagonet\Scripts\VisorManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\VisorObject.cs" />
-     <Compile Include="Assets\Simple Particle Ribbon\Scripts\ReverseNormals.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
@@ -105,6 +108,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
+     <None Include="Assets\Dagonet\Shaders\Fix3DText.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
@@ -118,6 +122,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
+     <None Include="Assets\Dagonet\Shaders\DagonetOutline.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
@@ -136,7 +141,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
-     <None Include="Assets\Simple Particle Ribbon\readme_Simple_Particle_Ribbon.txt" />
+     <None Include="Assets\Additional Assets\Simple Particle Ribbon\readme_Simple_Particle_Ribbon.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
@@ -147,11 +152,17 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>E:/Unity 5.2.1f1/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity 5.2.1f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>E:/Unity 5.2.1f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>E:/Unity 5.2.1f1/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>E:/Unity 5.2.1f1/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

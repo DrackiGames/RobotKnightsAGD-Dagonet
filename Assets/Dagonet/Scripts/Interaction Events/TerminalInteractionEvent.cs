@@ -22,8 +22,6 @@ public class TerminalInteractionEvent : InteractionEvent
 
         yield return new WaitForSeconds(0.3f);
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().Move(new Vector3(0, 0, -0.5f));
-
         CSM.isFadingIn = true;
     }
 }

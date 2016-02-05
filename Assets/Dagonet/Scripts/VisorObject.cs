@@ -24,6 +24,8 @@ public class VisorObject : MonoBehaviour
             GetComponent<Renderer>().material.color = none.color;
         }
 
+        visorObjectCollider(false);
+
         itemText = GameObject.FindGameObjectWithTag("ItemText").GetComponent<Text>();
     }
 
@@ -44,6 +46,8 @@ public class VisorObject : MonoBehaviour
             }
 
             particleSystem.gameObject.SetActive(true);
+
+            visorObjectCollider(true);
         }
         else
         {
@@ -59,6 +63,20 @@ public class VisorObject : MonoBehaviour
             }
 
             particleSystem.gameObject.SetActive(false);
+
+            visorObjectCollider(false);
         }
 	}
+
+    private void visorObjectCollider(bool par1On)
+    {
+        if (transform.GetComponent<BoxCollider>() != null)
+        {
+            transform.GetComponent<BoxCollider>().enabled = par1On;
+        }
+        if (transform.GetComponent<MeshCollider>() != null)
+        {
+            transform.GetComponent<MeshCollider>().enabled = par1On;
+        }
+    }
 }

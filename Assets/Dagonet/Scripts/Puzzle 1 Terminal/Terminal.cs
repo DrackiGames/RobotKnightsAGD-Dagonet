@@ -19,6 +19,10 @@ public class Terminal : MonoBehaviour
     public MeshCollider terminal;
     public Target target;
 
+    public TerminalCodePaper codePaper;
+
+    public Transform[] doorLights;
+
 	void Start () 
     {
         codeCombination = "";
@@ -27,6 +31,8 @@ public class Terminal : MonoBehaviour
             int r = Random.Range(1, 10);
             codeCombination += r.ToString();
         }
+
+        codePaper.setupTerminalParchment(codeCombination);
 
         cracked = false;
         inUse = false;
@@ -50,6 +56,14 @@ public class Terminal : MonoBehaviour
             }
 
             displayText.text = inputCode;
+        }
+        else
+        {
+            foreach(Transform light in doorLights)
+            {
+                light.GetComponent<MeshRenderer>().material.color = Color.green;
+                light.GetComponentInChildren<Light>().color = Color.green;
+            }
         }
 
         if(inUse)
@@ -106,6 +120,8 @@ public class Terminal : MonoBehaviour
 
         GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
         GameObject.Find("TerminalCamera").GetComponent<Camera>().enabled = false;
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
 
         inUse = false;
 

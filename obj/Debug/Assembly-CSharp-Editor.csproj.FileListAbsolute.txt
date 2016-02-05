@@ -40,3 +40,6 @@ F:\AGD\Test\Temp\bin\Debug\UnityEditor.Networking.xml
 F:\AGD\Test\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 F:\AGD\Test\obj\Debug\Assembly-CSharp-Editor.dll
 F:\AGD\Test\obj\Debug\Assembly-CSharp-Editor.pdb
+E:\AGD\Test\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
+E:\AGD\Test\obj\Debug\Assembly-CSharp-Editor.dll
+E:\AGD\Test\obj\Debug\Assembly-CSharp-Editor.pdb

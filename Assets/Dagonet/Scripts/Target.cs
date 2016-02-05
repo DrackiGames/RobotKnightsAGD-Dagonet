@@ -4,13 +4,15 @@ using System.Collections;
 
 public class Target : MonoBehaviour 
 {
-    public bool skinned;
     public bool overItem = false;
     public bool visorObject;
     public LayerMask layerMask;
     public string targetName;
 
-    public VisorManager visorManager;
+    public bool parentTransform = false;
+    public string directionAway;
+
+    public VisorManager visorManager; 
     public Image image;
     public Image mouseTip;
 
@@ -22,15 +24,24 @@ public class Target : MonoBehaviour
     private Color startingColour;
     private Text itemDisplayText;
 
+    //Distance control
+    public bool distanceControl;
+    public float distanceFactor;
+    //
+
     void Start()
     {
-        if(skinned)
+        if (GetComponent<SkinnedMeshRenderer>() != null) 
         {
             startingColour = GetComponent<SkinnedMeshRenderer>().material.color;
         }
-        else
+        if(GetComponent<MeshRenderer>() != null)
         {
             startingColour = GetComponent<MeshRenderer>().material.color;
+        }
+        if (GetComponent<SpriteRenderer>() != null)
+        {
+            startingColour = GetComponent<SpriteRenderer>().material.color;
         }
 
         itemDisplayText = GameObject.FindGameObjectWithTag("ItemText").GetComponent<Text>();
@@ -43,13 +54,17 @@ public class Target : MonoBehaviour
         if (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting())
         {
             overItem = true;
-            if (skinned)
+            if (GetComponent<SkinnedMeshRenderer>() != null)
             {
                 GetComponent<SkinnedMeshRenderer>().material.color = Color.white;
             }
-            else
+            if (GetComponent<MeshRenderer>() != null)
             {
                 GetComponent<MeshRenderer>().material.color = Color.white;
+            }
+            if (GetComponent<SpriteRenderer>() != null)
+            {
+                GetComponent<SpriteRenderer>().material.color = Color.white;
             }
 
             itemDisplayText.text = targetName;
@@ -65,13 +80,17 @@ public class Target : MonoBehaviour
         if (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting())
         {
             overItem = false;
-            if (skinned)
+            if (GetComponent<SkinnedMeshRenderer>() != null)
             {
                 GetComponent<SkinnedMeshRenderer>().material.color = startingColour;
             }
-            else
+            if (GetComponent<MeshRenderer>() != null)
             {
                 GetComponent<MeshRenderer>().material.color = startingColour;
+            }
+            if (GetComponent<SpriteRenderer>() != null)
+            {
+                GetComponent<SpriteRenderer>().material.color = startingColour;
             }
 
             itemDisplayText.text = "";
@@ -83,7 +102,8 @@ public class Target : MonoBehaviour
 
     private bool ableToDoTheHighlighting()
     {
-        return !GameObject.Find("TerminalScreen").GetComponent<Terminal>().inUse;
+        return !GameObject.Find("TerminalScreen").GetComponent<Terminal>().inUse &&
+            !GameObject.Find("Puzzle1PaperCamera").transform.parent.GetComponent<TerminalCodePaper>().inUse;
     }
 
     void Update()
@@ -91,8 +111,9 @@ public class Target : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
         {
             RaycastHit hit;
-            if (Physics.Raycast(new Ray(transform.position + transform.forward * 0.5f, Vector3.down), out hit, 1000, layerMask))
+            if (Physics.Raycast(new Ray((parentTransform ? transform.parent.position : transform.position) + getDirectionAway() * (distanceControl ? distanceFactor : 0.5f), Vector3.down), out hit, 1000, layerMask))
             {
+                Debug.Log("MOVE");
                 if (hit.transform.tag == "Ground")
                 {
                     GameObject.Find(GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>().currentCamera).GetComponent<MoveAround>().shouldWalk = true;
@@ -110,8 +131,9 @@ public class Target : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
         {
             RaycastHit hit;
-            if (Physics.Raycast(new Ray(transform.position + transform.forward * 0.5f, Vector3.down), out hit, 1000, layerMask))
+            if (Physics.Raycast(new Ray((parentTransform ? transform.parent.position : transform.position) + getDirectionAway() * (distanceControl ? distanceFactor : 0.5f), Vector3.down), out hit, 1000, layerMask))
             {
+                Debug.Log("MOVE");
                 if (hit.transform.tag == "Ground")
                 {
                     GameObject.Find(GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>().currentCamera).GetComponent<MoveAround>().shouldWalk = true;
@@ -129,18 +151,66 @@ public class Target : MonoBehaviour
 
     public void resetItemTextCursorAndHint()
     {
-        if (skinned)
+        if (GetComponent<SkinnedMeshRenderer>() != null)
         {
             GetComponent<SkinnedMeshRenderer>().material.color = startingColour;
         }
-        else
+        if (GetComponent<MeshRenderer>() != null)
         {
             GetComponent<MeshRenderer>().material.color = startingColour;
+        }
+        if (GetComponent<SpriteRenderer>() != null)
+        {
+            GetComponent<SpriteRenderer>().material.color = startingColour;
         }
 
         itemDisplayText.text = "";
         GameObject.FindGameObjectWithTag("CursorManager").GetComponent<CursorManager>().normal();
         image.enabled = false;
         mouseTip.enabled = false;
+    }
+
+    public Vector3 getDirectionAway()
+    {
+        Vector3 newVector = Vector3.zero;
+        switch(directionAway)
+        {
+            case "Y+" :
+            {
+                newVector = transform.up;
+                break;
+            }
+            case "Y-":
+            {
+                newVector = transform.up * -1.0f;
+                break;
+            }
+            case "X+":
+            {
+                newVector = transform.right;
+                break;
+            }
+            case "X-":
+            {
+                newVector = transform.right * -1.0f;
+                break;
+            }
+            case "Z+":
+            {
+                newVector = transform.up;
+                break;
+            }
+            case "Z-":
+            {
+                newVector = transform.up * -1.0f;
+                break;
+            }
+            default :
+            {
+                break;
+            }
+        }
+
+        return newVector;
     }
 }
