@@ -26,7 +26,7 @@ public class VisorManager : MonoBehaviour
 
         if(visorOn)
         {
-            visorText.text = "Visor ENABLED";
+            visorText.text = "VISOR ENABLED";
             GameObject.Find(CSM.currentCamera).transform.GetComponent<ColorCorrectionCurves>().enabled = true;
         }
         else

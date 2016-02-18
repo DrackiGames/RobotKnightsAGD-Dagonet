@@ -12,7 +12,6 @@ public class CorridorInteractionEvent : InteractionEvent
     {
         yield return new WaitForSeconds(0.3f);
 
-        CameraSwitchManager CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
         CSM.isFadingIn = false;
 
         yield return new WaitForSeconds(0.3f);
@@ -30,5 +29,6 @@ public class CorridorInteractionEvent : InteractionEvent
         yield return new WaitForSeconds(0.3f);
 
         CSM.isFadingIn = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
     }
 }

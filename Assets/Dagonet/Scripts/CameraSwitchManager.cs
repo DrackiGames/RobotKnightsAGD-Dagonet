@@ -12,6 +12,7 @@ public class CameraSwitchManager : MonoBehaviour
     public string coupleCamera2;
 
     public Terminal mainTerminal;
+    public TerminalCodePaper parchment;
 
 	void Start () 
     {
@@ -45,12 +46,14 @@ public class CameraSwitchManager : MonoBehaviour
 
     public void switchCamera(string par1Camera1Name, string par2Camera2Name)
     {
-        if(!mainTerminal.inUse)
+        if(!mainTerminal.inUse && !parchment.inUse)
         {
             Camera findCamera1 = GameObject.Find(par1Camera1Name).GetComponent<Camera>();
             Camera findCamera2 = GameObject.Find(par2Camera2Name).GetComponent<Camera>();
             findCamera2.enabled = true;
+            findCamera2.GetComponent<AudioListener>().enabled = true;
             findCamera1.enabled = false;
+            findCamera1.GetComponent<AudioListener>().enabled = false;
             currentCamera = par2Camera2Name;
         }
     }

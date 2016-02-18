@@ -29,6 +29,8 @@ public class Target : MonoBehaviour
     public float distanceFactor;
     //
 
+    private TargetManager targetManager;
+
     void Start()
     {
         if (GetComponent<SkinnedMeshRenderer>() != null) 
@@ -47,11 +49,14 @@ public class Target : MonoBehaviour
         itemDisplayText = GameObject.FindGameObjectWithTag("ItemText").GetComponent<Text>();
         image.enabled = false;
         mouseTip.enabled = false;
+
+        TargetManager.addTarget(this);
     }
 
 	void OnMouseOver()
     {
-        if (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting())
+        //if (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting())
+        if (((visorObject && visorManager.visorOn) || !visorObject))
         {
             overItem = true;
             if (GetComponent<SkinnedMeshRenderer>() != null)
@@ -70,14 +75,15 @@ public class Target : MonoBehaviour
             itemDisplayText.text = targetName;
             GameObject.FindGameObjectWithTag("CursorManager").GetComponent<CursorManager>().highlight();
             image.enabled = true;
-            image.rectTransform.localScale = new Vector3(itemDisplayText.text.Length + 1.2f, image.rectTransform.localScale.y, image.rectTransform.localScale.z);
+            image.rectTransform.localScale = new Vector3((itemDisplayText.text.Length) * 1.25f, image.rectTransform.localScale.y, image.rectTransform.localScale.z);
             mouseTip.enabled = true;
         }
     }
 
     void OnMouseExit()
     {
-        if (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting())
+        //if (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting())
+        if (((visorObject && visorManager.visorOn) || !visorObject))
         {
             overItem = false;
             if (GetComponent<SkinnedMeshRenderer>() != null)
@@ -108,39 +114,52 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
+        //if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
+        if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(new Ray((parentTransform ? transform.parent.position : transform.position) + getDirectionAway() * (distanceControl ? distanceFactor : 0.5f), Vector3.down), out hit, 1000, layerMask))
-            {
-                Debug.Log("MOVE");
-                if (hit.transform.tag == "Ground")
-                {
-                    GameObject.Find(GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>().currentCamera).GetComponent<MoveAround>().shouldWalk = true;
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().destination = hit.point;
+            //RaycastHit hit;
+            //if (Physics.Raycast(new Ray((parentTransform ? transform.parent.position : transform.position) + getDirectionAway() * (distanceControl ? distanceFactor : 0.5f), Vector3.down), out hit, 1000, layerMask))
+            //{
+            //    if (hit.transform.tag == "Ground")
+            //    {
+            //        if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, hit.transform.position) > 0.3f)
+            //        {
+            //            GameObject.Find(GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>().currentCamera).GetComponent<MoveAround>().shouldWalk = true;
+            //            GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().destination = hit.point;
+            //        }
 
-                    if (inspectionEvent != null)
-                    {
-                        resetItemTextCursorAndHint();
-                        StartCoroutine(inspectionEvent.inspectionEvents());
-                    }
-                }
+            //        if (inspectionEvent != null)
+            //        {
+            //            Debug.Log("MOVE AND INSPECT");
+            //            StartCoroutine(inspectionEvent.inspectionEvents());
+            //        }
+            //    }
+            //}
+
+            if (inspectionEvent != null)
+            {
+                Debug.Log("INSPECT");
+                StartCoroutine(inspectionEvent.inspectionEvents());
             }
         }
 
-        if (Input.GetMouseButtonDown(1) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
+        //if (Input.GetMouseButtonDown(1) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
+        if (Input.GetMouseButtonDown(1) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
         {
             RaycastHit hit;
             if (Physics.Raycast(new Ray((parentTransform ? transform.parent.position : transform.position) + getDirectionAway() * (distanceControl ? distanceFactor : 0.5f), Vector3.down), out hit, 1000, layerMask))
             {
-                Debug.Log("MOVE");
                 if (hit.transform.tag == "Ground")
                 {
-                    GameObject.Find(GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>().currentCamera).GetComponent<MoveAround>().shouldWalk = true;
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().destination = hit.point;
+                    if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, hit.transform.position) > 0.3f)
+                    {
+                        GameObject.Find(GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>().currentCamera).GetComponent<MoveAround>().shouldWalk = true;
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().destination = hit.point;
+                    }
 
                     if(interactionEvent != null)
                     {
+                        Debug.Log("MOVE AND INTERACT");
                         resetItemTextCursorAndHint();
                         StartCoroutine(interactionEvent.interactionEvents());
                     }

@@ -38,10 +38,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>E:/Unity 5.2.1f1/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>E:/Unity 5.2.1f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -52,7 +52,14 @@
      <Compile Include="Assets\Dagonet\Scripts\Cutscene Events\CharacterMoveAround.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Cutscene Events\CutSceneEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\FixVisorText.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\CorridorDoorInspectionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\DesktopInspectionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\EmergencyLightInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\InspectionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\ParchmentInspectionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\StatisUnitInspectionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\TerminalDoorInspectionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\TerminalInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\CorridorInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\DoorInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\InteractionEvent.cs" />
@@ -67,7 +74,9 @@
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 1 Terminal\TerminalCodePaper.cs" />
      <Compile Include="Assets\Dagonet\Scripts\QuestTextManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\State Behaviours\VisorDownEnd.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\SubtitleManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Target.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\TargetManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\VisorDownStop.cs" />
      <Compile Include="Assets\Dagonet\Scripts\VisorManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\VisorObject.cs" />
@@ -152,23 +161,17 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>E:/Unity 5.2.1f1/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>E:/Unity 5.2.1f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>E:/Unity 5.2.1f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>E:/Unity 5.2.1f1/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
- <HintPath>E:/Unity 5.2.1f1/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>E:/Unity 5.2.1f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

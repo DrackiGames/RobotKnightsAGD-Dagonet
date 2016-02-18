@@ -11,6 +11,8 @@ TagManager:
   - CameraSwitchManager
   - CursorManager
   - QuestTextManager
+  - SubtitleManager
+  - TargetManager
   layers:
   - Default
   - TransparentFX

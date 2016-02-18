@@ -113,6 +113,8 @@ public class Terminal : MonoBehaviour
 
     private IEnumerator exitTerminal()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+
         CameraSwitchManager CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
         CSM.isFadingIn = false;
 
@@ -128,5 +130,6 @@ public class Terminal : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
 
         CSM.isFadingIn = true;
+        TargetManager.enableTargets();
     }
 }

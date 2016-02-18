@@ -1,10 +1,10 @@
-﻿Shader "Outlined/Diffuse" {
+﻿Shader "Outlined/Diffuse" 
+{
 	Properties {
 		_Color ("Main Color", Color) = (.5,.5,.5,1)
 		_OutlineColor ("Outline Color", Color) = (0,0,0,1)
-		_Outline ("Outline width", Range (.0002, 2.0)) = .005
+		_Outline ("Outline width", Range (.0001, 2.0)) = .005
 		_MainTex ("Base (RGB)", 2D) = "white" { }
-		_LightMap ("Lightmap (RGB)", 2D) = "black" {}
 	}
  
 CGINCLUDE
