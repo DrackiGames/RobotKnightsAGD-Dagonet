@@ -6,6 +6,8 @@ public class ParchmentBoardInteractionEvent : InteractionEvent
     public TerminalCodePaper codePaper;
     public override IEnumerator interactionEvents()
     {
+        TargetManager.disableTargets();
+
         yield return new WaitForSeconds(0.3f);
 
         CSM.isFadingIn = false;

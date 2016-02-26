@@ -9,7 +9,7 @@ public class VisorObject : MonoBehaviour
     public Material onehundredfifty;
     public Material none;
 
-    public Transform particleSystem;
+    public Transform particleSystemRed;
 
     private Text itemText;
 
@@ -45,7 +45,7 @@ public class VisorObject : MonoBehaviour
                 GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, onehundredfifty.color, lerp);
             }
 
-            particleSystem.gameObject.SetActive(true);
+            particleSystemRed.gameObject.SetActive(true);
 
             visorObjectCollider(true);
         }
@@ -62,7 +62,7 @@ public class VisorObject : MonoBehaviour
                 GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, none.color, lerp);
             }
 
-            particleSystem.gameObject.SetActive(false);
+            particleSystemRed.gameObject.SetActive(false);
 
             visorObjectCollider(false);
         }

@@ -6,4 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Dagonet/Scenes/Dagonet_1stEnvironment_Detective.unity
+    path: Assets/Dagonet/Scenes/Main Menu/Scene/Main Menu Scene.unity
+  - enabled: 1
+    path: Assets/Dagonet/Scenes/Dagonet Game Environment/Dagonet_1stEnvironment_Detective.unity

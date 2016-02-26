@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class TerminalCodePaper : MonoBehaviour
@@ -6,6 +7,12 @@ public class TerminalCodePaper : MonoBehaviour
     public Color transparentish;
     public Sprite[] numbers;
     public bool inUse = false;
+
+    [SerializeField]
+    private Text escapeText;
+
+    [SerializeField]
+    private Terminal terminal;
 
     public void setupTerminalParchment(string par1TerminalCode)
     {
@@ -29,7 +36,7 @@ public class TerminalCodePaper : MonoBehaviour
             }
 
             numbersOnParchment[randomNumber].sprite = numbers[System.Convert.ToInt16(par1TerminalCode[i].ToString()) - 1];
-            numbersOnParchment[randomNumber].transform.localScale *= 1.2f;
+            numbersOnParchment[randomNumber].transform.localScale *= 1.3f;
             numbersOnParchment[randomNumber].transform.Rotate(Vector3.forward, Random.Range(0, 360.0f));
 
             alreadyTaken.Add(randomNumber);
@@ -54,13 +61,24 @@ public class TerminalCodePaper : MonoBehaviour
                 transform.GetComponent<BoxCollider>().enabled = false;
             }
             GetComponent<Target>().resetItemTextCursorAndHint();
-            
+
+            if(!terminal.inUse)
+            {
+                escapeText.enabled = true;
+                escapeText.GetComponent<Outline>().enabled = true;
+            } 
         }
         else
         {
             if (!transform.GetComponent<BoxCollider>().enabled)
             {
                 transform.GetComponent<BoxCollider>().enabled = true;
+            }
+
+            if(!terminal.inUse)
+            {
+                escapeText.enabled = false;
+                escapeText.GetComponent<Outline>().enabled = false;
             }
         }
     }

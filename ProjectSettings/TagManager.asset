@@ -13,6 +13,8 @@ TagManager:
   - QuestTextManager
   - SubtitleManager
   - TargetManager
+  - AudioCamera
+  - AudioSpot
   layers:
   - Default
   - TransparentFX

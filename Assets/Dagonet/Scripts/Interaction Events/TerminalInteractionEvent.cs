@@ -4,7 +4,6 @@ using System.Collections;
 public class TerminalInteractionEvent : InteractionEvent 
 {
     public Terminal mainTerminal;
-    public Transform terminalFixPoint;
 
     public override IEnumerator interactionEvents()
     {

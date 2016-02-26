@@ -55,7 +55,6 @@ public class Target : MonoBehaviour
 
 	void OnMouseOver()
     {
-        //if (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting())
         if (((visorObject && visorManager.visorOn) || !visorObject))
         {
             overItem = true;
@@ -82,7 +81,6 @@ public class Target : MonoBehaviour
 
     void OnMouseExit()
     {
-        //if (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting())
         if (((visorObject && visorManager.visorOn) || !visorObject))
         {
             overItem = false;

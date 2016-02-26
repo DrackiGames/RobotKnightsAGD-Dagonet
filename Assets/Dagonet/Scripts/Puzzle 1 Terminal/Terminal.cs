@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Terminal : MonoBehaviour 
@@ -22,6 +23,9 @@ public class Terminal : MonoBehaviour
     public TerminalCodePaper codePaper;
 
     public Transform[] doorLights;
+
+    [SerializeField]
+    private Text escapeText;
 
 	void Start () 
     {
@@ -77,12 +81,25 @@ public class Terminal : MonoBehaviour
             {
                 StartCoroutine(exitTerminal());
             }
+
+            if(!codePaper.inUse)
+            {
+                escapeText.enabled = true;
+                escapeText.GetComponent<Outline>().enabled = true;
+            }
+            
         }
         else
         {
             if(!terminal.enabled)
             {
                 terminal.enabled = true;
+            }
+
+            if (!codePaper.inUse)
+            {
+                escapeText.enabled = false;
+                escapeText.GetComponent<Outline>().enabled = false;
             }
         }
 	}
