@@ -115,29 +115,13 @@ public class Target : MonoBehaviour
         //if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
         if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
         {
-            //RaycastHit hit;
-            //if (Physics.Raycast(new Ray((parentTransform ? transform.parent.position : transform.position) + getDirectionAway() * (distanceControl ? distanceFactor : 0.5f), Vector3.down), out hit, 1000, layerMask))
-            //{
-            //    if (hit.transform.tag == "Ground")
-            //    {
-            //        if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, hit.transform.position) > 0.3f)
-            //        {
-            //            GameObject.Find(GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>().currentCamera).GetComponent<MoveAround>().shouldWalk = true;
-            //            GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().destination = hit.point;
-            //        }
-
-            //        if (inspectionEvent != null)
-            //        {
-            //            Debug.Log("MOVE AND INSPECT");
-            //            StartCoroutine(inspectionEvent.inspectionEvents());
-            //        }
-            //    }
-            //}
-
-            if (inspectionEvent != null)
+            if (inspectionEvent != null && !GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("shouldTalkMedium"))
             {
-                Debug.Log("INSPECT");
-                StartCoroutine(inspectionEvent.inspectionEvents());
+                if(!GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("shouldTalkMedium"))
+                {
+                    Debug.Log("INSPECT");
+                    StartCoroutine(inspectionEvent.inspectionEvents());
+                }
             }
         }
 
@@ -155,11 +139,14 @@ public class Target : MonoBehaviour
                         GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().destination = hit.point;
                     }
 
-                    if(interactionEvent != null)
+                    if (interactionEvent != null)
                     {
-                        Debug.Log("MOVE AND INTERACT");
-                        resetItemTextCursorAndHint();
-                        StartCoroutine(interactionEvent.interactionEvents());
+                        if(!GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("shouldTalkMedium"))
+                        {
+                            Debug.Log("MOVE AND INTERACT");
+                            resetItemTextCursorAndHint();
+                            StartCoroutine(interactionEvent.interactionEvents());
+                        }
                     }
                 }
             }

@@ -27,9 +27,10 @@ public class DamageFloor : MonoBehaviour
 
     void Update()
     {
-        if(fallFinished && !fallFinished)
+        if(fallen && !fallFinished)
         {
-            player.transform.Translate(new Vector3(0, -Time.deltaTime * 3, 0));
+            Debug.Log("FALL");
+            player.transform.Translate(new Vector3(0, -3 * Time.deltaTime, 0));
         }
     }
 

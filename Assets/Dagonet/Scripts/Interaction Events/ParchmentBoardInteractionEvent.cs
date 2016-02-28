@@ -4,6 +4,12 @@ using System.Collections;
 public class ParchmentBoardInteractionEvent : InteractionEvent 
 {
     public TerminalCodePaper codePaper;
+
+    [SerializeField]
+    private AudioClip[] interactionLines;
+    [SerializeField]
+    private string[] linesForSubtitles;
+
     public override IEnumerator interactionEvents()
     {
         TargetManager.disableTargets();
@@ -23,11 +29,20 @@ public class ParchmentBoardInteractionEvent : InteractionEvent
 
         CSM.isFadingIn = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+
+        yield return new WaitForSeconds(0.5f);
+
+        if (!GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().isPlaying)
+        {
+            GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().PlayOneShot(interactionLines[0]);
+            subtitleManager.updateSubtitles(linesForSubtitles[0]);
+            StartCoroutine(waitAndResetSubtitles(interactionLines[0].length));
+        }
     }
 
     void Update()
     {
-        if (codePaper.inUse && Input.GetKeyDown(KeyCode.Escape))
+        if (codePaper.inUse && Input.GetKeyDown(KeyCode.Q))
         {
             StartCoroutine(exitCodePaper());
         }

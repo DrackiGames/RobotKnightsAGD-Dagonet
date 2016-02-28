@@ -599,7 +599,7 @@ MonoBehaviour:
     m_Bits: 256
   targetName: Desk Drawer
   parentTransform: 0
-  directionAway: X-
+  directionAway: X+
   visorManager: {fileID: 1513152860}
   image: {fileID: 1841800888}
   mouseTip: {fileID: 397139351}
@@ -1495,7 +1495,7 @@ MonoBehaviour:
     m_Bits: 256
   targetName: Desk Drawer
   parentTransform: 0
-  directionAway: X-
+  directionAway: X+
   visorManager: {fileID: 1513152860}
   image: {fileID: 1841800888}
   mouseTip: {fileID: 397139351}
@@ -1736,7 +1736,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae381747e3f9ac549a624adcb8c6b0e7, type: 2}
+  - {fileID: 2100000, guid: 26bed4a2d3c694e42a3dead6deb41ae8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -4245,7 +4245,7 @@ MonoBehaviour:
     m_Bits: 256
   targetName: Desk Drawer
   parentTransform: 0
-  directionAway: X-
+  directionAway: X+
   visorManager: {fileID: 1513152860}
   image: {fileID: 1841800888}
   mouseTip: {fileID: 397139351}
@@ -5180,6 +5180,7 @@ MonoBehaviour:
   idleLookAround: 0
   visorDown: 0
   started: 0
+  shouldSpeakMedium: 0
 --- !u!81 &334702703
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6834,7 +6835,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 92c84bd1d27e8d941818b41f455e76be, type: 3}
   - {fileID: 8300000, guid: e36bb83b1b18d9c4fa5ca892dce9daff, type: 3}
   linesForSubtitles:
-  - The emergency lock is on.. I wonder why
+  - The emergency lock is on... I wonder why?
   - "It\u2019s open!  Better see what\u2019s going on"
   terminal: {fileID: 749918456}
 --- !u!1 &454825574
@@ -7142,6 +7143,7 @@ GameObject:
   - 33: {fileID: 478855570}
   - 23: {fileID: 478855569}
   - 64: {fileID: 478855568}
+  - 114: {fileID: 478855571}
   m_Layer: 0
   m_Name: Desk_Drawer (3)
   m_TagString: Untagged
@@ -7206,6 +7208,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 478855566}
   m_Mesh: {fileID: 4300000, guid: 5af8463fdf83c9b44987e144eaf1b712, type: 3}
+--- !u!114 &478855571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478855566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76ec3fd6581ce4a8cf66a457c23741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overItem: 0
+  visorObject: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetName: Desk Drawer
+  parentTransform: 0
+  directionAway: X+
+  visorManager: {fileID: 1513152860}
+  image: {fileID: 1841800888}
+  mouseTip: {fileID: 397139351}
+  inspectionEvent: {fileID: 0}
+  interactionEvent: {fileID: 0}
+  distanceControl: 0
+  distanceFactor: 0
 --- !u!1 &492087617
 GameObject:
   m_ObjectHideFlags: 0
@@ -7437,7 +7465,7 @@ MonoBehaviour:
     m_Bits: 256
   targetName: Desk Drawer
   parentTransform: 0
-  directionAway: X-
+  directionAway: X+
   visorManager: {fileID: 1513152860}
   image: {fileID: 1841800888}
   mouseTip: {fileID: 397139351}
@@ -7944,7 +7972,7 @@ MonoBehaviour:
     m_Bits: 256
   targetName: Desktop Screen
   parentTransform: 0
-  directionAway: X+
+  directionAway: X-
   visorManager: {fileID: 1513152860}
   image: {fileID: 1841800888}
   mouseTip: {fileID: 397139351}
@@ -8244,6 +8272,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTerminal: {fileID: 749918456}
+  interactionLines:
+  - {fileID: 8300000, guid: 4759290e00b78c046838cc8441933ff6, type: 3}
+  linesForSubtitles:
+  - "Makes me nervous that someone has locked me in with this\u2026"
 --- !u!1 &554867542
 GameObject:
   m_ObjectHideFlags: 0
@@ -8895,6 +8927,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   codePaper: {fileID: 206296180}
+  interactionLines:
+  - {fileID: 8300000, guid: 55c1a7f0e667ecf499185e9d4eb4dec7, type: 3}
+  linesForSubtitles:
+  - Looks like I need some significant numbers from here
 --- !u!1 &583178865
 GameObject:
   m_ObjectHideFlags: 0
@@ -9458,6 +9494,79 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 602822102}
   m_Mesh: {fileID: 4300000, guid: 702a0d2b3ba33c34b84675d40406d5f1, type: 3}
+--- !u!1 &615597836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 615597837}
+  - 33: {fileID: 615597840}
+  - 65: {fileID: 615597839}
+  - 23: {fileID: 615597838}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &615597837
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615597836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -33.4000015, z: 0}
+  m_LocalScale: {x: 37.3430748, y: 1, z: 6.71922922}
+  m_Children: []
+  m_Father: {fileID: 1960634750}
+  m_RootOrder: 4
+--- !u!23 &615597838
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615597836}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: b28ae9475b3c2b04aac901107934566f, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &615597839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615597836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &615597840
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615597836}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &616229405
 GameObject:
   m_ObjectHideFlags: 0
@@ -10394,7 +10503,7 @@ MonoBehaviour:
     m_Bits: 256
   targetName: Desktop Screen
   parentTransform: 0
-  directionAway: X+
+  directionAway: X-
   visorManager: {fileID: 1513152860}
   image: {fileID: 1841800888}
   mouseTip: {fileID: 397139351}
@@ -10933,6 +11042,7 @@ MonoBehaviour:
   idleLookAround: 0
   visorDown: 0
   started: 0
+  shouldSpeakMedium: 0
 --- !u!92 &709087525
 Behaviour:
   m_ObjectHideFlags: 0
@@ -12095,6 +12205,7 @@ MonoBehaviour:
   idleLookAround: 0
   visorDown: 0
   started: 0
+  shouldSpeakMedium: 0
 --- !u!92 &764946822
 Behaviour:
   m_ObjectHideFlags: 0
@@ -12417,6 +12528,7 @@ GameObject:
   - 33: {fileID: 776420365}
   - 23: {fileID: 776420364}
   - 64: {fileID: 776420363}
+  - 114: {fileID: 776420366}
   m_Layer: 0
   m_Name: Desk_Drawer (2)
   m_TagString: Untagged
@@ -12481,6 +12593,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 776420361}
   m_Mesh: {fileID: 4300000, guid: 5af8463fdf83c9b44987e144eaf1b712, type: 3}
+--- !u!114 &776420366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 776420361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76ec3fd6581ce4a8cf66a457c23741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overItem: 0
+  visorObject: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetName: Desk Drawer
+  parentTransform: 0
+  directionAway: X+
+  visorManager: {fileID: 1513152860}
+  image: {fileID: 1841800888}
+  mouseTip: {fileID: 397139351}
+  inspectionEvent: {fileID: 0}
+  interactionEvent: {fileID: 0}
+  distanceControl: 0
+  distanceFactor: 0
 --- !u!1 &787505219
 GameObject:
   m_ObjectHideFlags: 0
@@ -14771,6 +14909,7 @@ MonoBehaviour:
   idleLookAround: 0
   visorDown: 0
   started: 0
+  shouldSpeakMedium: 0
 --- !u!92 &932092966
 Behaviour:
   m_ObjectHideFlags: 0
@@ -15226,7 +15365,7 @@ MonoBehaviour:
     m_Bits: 256
   targetName: Desk Drawer
   parentTransform: 0
-  directionAway: X-
+  directionAway: X+
   visorManager: {fileID: 1513152860}
   image: {fileID: 1841800888}
   mouseTip: {fileID: 397139351}
@@ -15519,6 +15658,7 @@ GameObject:
   - 33: {fileID: 980395096}
   - 23: {fileID: 980395095}
   - 64: {fileID: 980395094}
+  - 114: {fileID: 980395097}
   m_Layer: 0
   m_Name: Desk_Drawer (1)
   m_TagString: Untagged
@@ -15583,6 +15723,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 980395092}
   m_Mesh: {fileID: 4300000, guid: 5af8463fdf83c9b44987e144eaf1b712, type: 3}
+--- !u!114 &980395097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 980395092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76ec3fd6581ce4a8cf66a457c23741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overItem: 0
+  visorObject: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetName: Desk Drawer
+  parentTransform: 0
+  directionAway: X-
+  visorManager: {fileID: 1513152860}
+  image: {fileID: 1841800888}
+  mouseTip: {fileID: 397139351}
+  inspectionEvent: {fileID: 0}
+  interactionEvent: {fileID: 0}
+  distanceControl: 0
+  distanceFactor: 0
 --- !u!1 &986097854
 GameObject:
   m_ObjectHideFlags: 0
@@ -17442,7 +17608,7 @@ MonoBehaviour:
     m_Bits: 256
   targetName: Desk Drawer
   parentTransform: 0
-  directionAway: X-
+  directionAway: X+
   visorManager: {fileID: 1513152860}
   image: {fileID: 1841800888}
   mouseTip: {fileID: 397139351}
@@ -18839,19 +19005,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0fcb86165828dc34f8526336551fa24e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 4.07718765e-08
+      value: .22747542
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0fcb86165828dc34f8526336551fa24e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: .707106829
+      value: .66951853
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0fcb86165828dc34f8526336551fa24e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: .707106709
+      value: .669518411
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0fcb86165828dc34f8526336551fa24e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -4.07719085e-08
+      value: -.227475405
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0fcb86165828dc34f8526336551fa24e, type: 3}
       propertyPath: m_RootOrder
@@ -18863,15 +19029,15 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 7476d6aff239158449fd98a9f2f048dc, type: 2}
     - target: {fileID: 400000, guid: 0fcb86165828dc34f8526336551fa24e, type: 3}
       propertyPath: m_LocalScale.x
-      value: .400000006
+      value: .310000002
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0fcb86165828dc34f8526336551fa24e, type: 3}
       propertyPath: m_LocalScale.y
-      value: .400000006
+      value: .310000002
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0fcb86165828dc34f8526336551fa24e, type: 3}
       propertyPath: m_LocalScale.z
-      value: .400000006
+      value: .310000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fcb86165828dc34f8526336551fa24e, type: 3}
@@ -20720,7 +20886,7 @@ MonoBehaviour:
     m_Bits: 256
   targetName: Desk Drawer
   parentTransform: 0
-  directionAway: X-
+  directionAway: X+
   visorManager: {fileID: 1513152860}
   image: {fileID: 1841800888}
   mouseTip: {fileID: 397139351}
@@ -21446,7 +21612,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Esc To Exit
+  m_Text: Q To Exit
 --- !u!224 &1377659050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24241,6 +24407,7 @@ GameObject:
   - 33: {fileID: 1552543446}
   - 23: {fileID: 1552543445}
   - 64: {fileID: 1552543444}
+  - 114: {fileID: 1552543447}
   m_Layer: 0
   m_Name: Desk_Drawer (2)
   m_TagString: Untagged
@@ -24305,6 +24472,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1552543442}
   m_Mesh: {fileID: 4300000, guid: 5af8463fdf83c9b44987e144eaf1b712, type: 3}
+--- !u!114 &1552543447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552543442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76ec3fd6581ce4a8cf66a457c23741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overItem: 0
+  visorObject: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetName: Desk Drawer
+  parentTransform: 0
+  directionAway: X+
+  visorManager: {fileID: 1513152860}
+  image: {fileID: 1841800888}
+  mouseTip: {fileID: 397139351}
+  inspectionEvent: {fileID: 0}
+  interactionEvent: {fileID: 0}
+  distanceControl: 0
+  distanceFactor: 0
 --- !u!1 &1554855928
 GameObject:
   m_ObjectHideFlags: 0
@@ -24773,6 +24966,7 @@ GameObject:
   - 33: {fileID: 1588589447}
   - 23: {fileID: 1588589446}
   - 64: {fileID: 1588589445}
+  - 114: {fileID: 1588589448}
   m_Layer: 0
   m_Name: Desk_Drawer (3)
   m_TagString: Untagged
@@ -24837,6 +25031,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1588589443}
   m_Mesh: {fileID: 4300000, guid: 5af8463fdf83c9b44987e144eaf1b712, type: 3}
+--- !u!114 &1588589448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588589443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76ec3fd6581ce4a8cf66a457c23741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overItem: 0
+  visorObject: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetName: Desk Drawer
+  parentTransform: 0
+  directionAway: X+
+  visorManager: {fileID: 1513152860}
+  image: {fileID: 1841800888}
+  mouseTip: {fileID: 397139351}
+  inspectionEvent: {fileID: 0}
+  interactionEvent: {fileID: 0}
+  distanceControl: 0
+  distanceFactor: 0
 --- !u!1 &1590818940
 GameObject:
   m_ObjectHideFlags: 0
@@ -25159,6 +25379,7 @@ MonoBehaviour:
   idleLookAround: 0
   visorDown: 0
   started: 0
+  shouldSpeakMedium: 0
 --- !u!92 &1601036593
 Behaviour:
   m_ObjectHideFlags: 0
@@ -26087,6 +26308,7 @@ GameObject:
   - 33: {fileID: 1648084147}
   - 23: {fileID: 1648084146}
   - 64: {fileID: 1648084145}
+  - 114: {fileID: 1648084148}
   m_Layer: 0
   m_Name: Desk_Drawer (2)
   m_TagString: Untagged
@@ -26151,6 +26373,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1648084143}
   m_Mesh: {fileID: 4300000, guid: 5af8463fdf83c9b44987e144eaf1b712, type: 3}
+--- !u!114 &1648084148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1648084143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76ec3fd6581ce4a8cf66a457c23741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overItem: 0
+  visorObject: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetName: Desk Drawer
+  parentTransform: 0
+  directionAway: X+
+  visorManager: {fileID: 1513152860}
+  image: {fileID: 1841800888}
+  mouseTip: {fileID: 397139351}
+  inspectionEvent: {fileID: 0}
+  interactionEvent: {fileID: 0}
+  distanceControl: 0
+  distanceFactor: 0
 --- !u!1 &1651342851
 GameObject:
   m_ObjectHideFlags: 0
@@ -26621,6 +26869,7 @@ MonoBehaviour:
   idleLookAround: 0
   visorDown: 0
   started: 0
+  shouldSpeakMedium: 0
 --- !u!92 &1655489786
 Behaviour:
   m_ObjectHideFlags: 0
@@ -27864,7 +28113,8 @@ GameObject:
   - 4: {fileID: 1742710938}
   - 33: {fileID: 1742710941}
   - 23: {fileID: 1742710940}
-  - 64: {fileID: 1742710939}
+  - 64: {fileID: 1742710942}
+  - 114: {fileID: 1742710939}
   m_Layer: 0
   m_Name: Desk_Drawer (2)
   m_TagString: Untagged
@@ -27884,18 +28134,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 632952397}
   m_RootOrder: 135
---- !u!64 &1742710939
-MeshCollider:
+--- !u!114 &1742710939
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1742710937}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: 5af8463fdf83c9b44987e144eaf1b712, type: 3}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76ec3fd6581ce4a8cf66a457c23741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overItem: 0
+  visorObject: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetName: Desk Drawer
+  parentTransform: 0
+  directionAway: X+
+  visorManager: {fileID: 1513152860}
+  image: {fileID: 1841800888}
+  mouseTip: {fileID: 397139351}
+  inspectionEvent: {fileID: 0}
+  interactionEvent: {fileID: 0}
+  distanceControl: 0
+  distanceFactor: 0
 --- !u!23 &1742710940
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27928,6 +28192,18 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1742710937}
+  m_Mesh: {fileID: 4300000, guid: 5af8463fdf83c9b44987e144eaf1b712, type: 3}
+--- !u!64 &1742710942
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1742710937}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 5af8463fdf83c9b44987e144eaf1b712, type: 3}
 --- !u!1 &1751308222
 GameObject:
@@ -31165,7 +31441,7 @@ MonoBehaviour:
     m_Bits: 256
   targetName: Desk Drawer
   parentTransform: 0
-  directionAway: X-
+  directionAway: X+
   visorManager: {fileID: 1513152860}
   image: {fileID: 1841800888}
   mouseTip: {fileID: 397139351}
@@ -32177,6 +32453,7 @@ GameObject:
   - 33: {fileID: 2001183513}
   - 23: {fileID: 2001183512}
   - 64: {fileID: 2001183511}
+  - 114: {fileID: 2001183514}
   m_Layer: 0
   m_Name: Desk_Drawer (3)
   m_TagString: Untagged
@@ -32241,6 +32518,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2001183509}
   m_Mesh: {fileID: 4300000, guid: 5af8463fdf83c9b44987e144eaf1b712, type: 3}
+--- !u!114 &2001183514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001183509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76ec3fd6581ce4a8cf66a457c23741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overItem: 0
+  visorObject: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetName: Desk Drawer
+  parentTransform: 0
+  directionAway: X+
+  visorManager: {fileID: 1513152860}
+  image: {fileID: 1841800888}
+  mouseTip: {fileID: 397139351}
+  inspectionEvent: {fileID: 0}
+  interactionEvent: {fileID: 0}
+  distanceControl: 0
+  distanceFactor: 0
 --- !u!1 &2002813267 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 0fcb86165828dc34f8526336551fa24e, type: 3}

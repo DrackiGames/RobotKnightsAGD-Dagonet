@@ -41,7 +41,6 @@ public class audioScript : MonoBehaviour {
 	    volumeToggleImage.GetComponent<Image>().sprite = volumeMediumSprite;
         soundEffectSource.volume = 0.6f;
         musicSource.volume = 0.6f;
-        
 	}
 
     public void changeVolumeState()

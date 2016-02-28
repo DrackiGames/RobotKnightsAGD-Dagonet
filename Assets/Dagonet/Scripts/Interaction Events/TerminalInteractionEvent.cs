@@ -4,6 +4,10 @@ using System.Collections;
 public class TerminalInteractionEvent : InteractionEvent 
 {
     public Terminal mainTerminal;
+    [SerializeField]
+    private AudioClip[] interactionLines;
+    [SerializeField]
+    private string[] linesForSubtitles;
 
     public override IEnumerator interactionEvents()
     {
@@ -24,5 +28,14 @@ public class TerminalInteractionEvent : InteractionEvent
 
         CSM.isFadingIn = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+
+        yield return new WaitForSeconds(0.5f);
+
+        if (!GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().isPlaying)
+        {
+            GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().PlayOneShot(interactionLines[0]);
+            subtitleManager.updateSubtitles(linesForSubtitles[0]);
+            StartCoroutine(waitAndResetSubtitles(interactionLines[0].length));
+        }
     }
 }

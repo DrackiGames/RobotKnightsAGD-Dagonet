@@ -17,6 +17,7 @@ public class MoveAround : MonoBehaviour
 	public bool idleLookAround;
 	public bool visorDown;
 	public bool started = false;
+    public bool shouldSpeakMedium;
 
 	void Start () 
     {
@@ -24,6 +25,7 @@ public class MoveAround : MonoBehaviour
         playerAnimator = player.GetComponent<Animator>();
         shouldWalk = false;
 		visorDown = false;
+        shouldSpeakMedium = true;
 		started = false;
 		
 		int rand = Random.Range(0, 2);
@@ -62,11 +64,10 @@ public class MoveAround : MonoBehaviour
 			}
         }
 
-        if(Vector3.Distance(navMeshAgentForPlayer.transform.position, navMeshAgentForPlayer.destination) < 0.05f)
-        {
-            navMeshAgentForPlayer.destination = navMeshAgentForPlayer.transform.position;
-        }
-        
+        //if(Vector3.Distance(navMeshAgentForPlayer.transform.position, navMeshAgentForPlayer.destination) < 0.05f)
+        //{
+        //    navMeshAgentForPlayer.destination = navMeshAgentForPlayer.transform.position;
+        //}
 
         //if (!shouldWalk)
         //{
@@ -90,7 +91,7 @@ public class MoveAround : MonoBehaviour
             playerAnimator.SetBool("visorUp", true);
         }
 		
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && !playerAnimator.GetBool("shouldTalkMedium"))
         {
             RaycastHit hit = new RaycastHit();
             Ray ray = GameObject.Find(CSM.currentCamera).GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
@@ -99,6 +100,7 @@ public class MoveAround : MonoBehaviour
                 captured = hit.transform;
                 if (hit.collider.tag == "Ground")
                 {
+                    Debug.Log("MOVE AROUND");
                     Vector3 destination = hit.point;
                     navMeshAgentForPlayer.destination = destination;
 					shouldWalk = true;
@@ -107,5 +109,10 @@ public class MoveAround : MonoBehaviour
         }
 
         transform.LookAt(lookAtTarget.position + new Vector3(0, cameraShiftUp, 0));
+    }
+
+    public void shouldTalkMediumProcess(bool par1ShouldTalkMedium)
+    {
+        playerAnimator.SetBool("shouldTalkMedium", par1ShouldTalkMedium);
     }
 }

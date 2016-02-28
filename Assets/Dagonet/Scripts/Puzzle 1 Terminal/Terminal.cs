@@ -77,7 +77,7 @@ public class Terminal : MonoBehaviour
                 terminal.enabled = false;
             }
             target.resetItemTextCursorAndHint();
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if(Input.GetKeyDown(KeyCode.Q))
             {
                 StartCoroutine(exitTerminal());
             }

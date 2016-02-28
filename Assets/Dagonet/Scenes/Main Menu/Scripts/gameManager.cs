@@ -12,18 +12,11 @@ public class gameManager : MonoBehaviour {
         DontDestroyOnLoad(this);
         subtitlesEnabled = true;
         graphicsQuality = QualitySettings.GetQualityLevel();
+        gameVolume = 0.6f;
     }
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            GameObject.Find("CursorManager").GetComponent<CursorManager>().highlight();
-        }
-        if (!Input.GetMouseButton(0))
-        {
-            GameObject.Find("CursorManager").GetComponent<CursorManager>().normal();
-
-        }
+        
     }
 
     public bool getSubtitlesEnabled()
