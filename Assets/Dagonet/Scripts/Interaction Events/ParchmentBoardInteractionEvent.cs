@@ -12,8 +12,6 @@ public class ParchmentBoardInteractionEvent : InteractionEvent
 
     public override IEnumerator interactionEvents()
     {
-        TargetManager.disableTargets();
-
         yield return new WaitForSeconds(0.3f);
 
         CSM.isFadingIn = false;
@@ -28,7 +26,7 @@ public class ParchmentBoardInteractionEvent : InteractionEvent
         yield return new WaitForSeconds(0.3f);
 
         CSM.isFadingIn = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 
         yield return new WaitForSeconds(0.5f);
 
@@ -50,7 +48,7 @@ public class ParchmentBoardInteractionEvent : InteractionEvent
 
     private IEnumerator exitCodePaper()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 
         CameraSwitchManager CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
         CSM.isFadingIn = false;
@@ -60,13 +58,12 @@ public class ParchmentBoardInteractionEvent : InteractionEvent
         GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
         GameObject.Find("Puzzle1PaperCamera").GetComponent<Camera>().enabled = false;
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 
         codePaper.inUse = false;
 
         yield return new WaitForSeconds(0.3f);
 
         CSM.isFadingIn = true;
-        TargetManager.enableTargets();
     }
 }

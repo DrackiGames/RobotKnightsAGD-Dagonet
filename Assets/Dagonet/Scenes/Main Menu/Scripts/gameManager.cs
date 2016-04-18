@@ -1,22 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class gameManager : MonoBehaviour {
-
+public class gameManager : Singleton<gameManager> 
+{
+    [SerializeField]
     private bool subtitlesEnabled;
+    [SerializeField]
     private int graphicsQuality;
+    [SerializeField]
     private float gameVolume;
+    private bool started;
 
     void Awake()
     {
-        DontDestroyOnLoad(this);
         subtitlesEnabled = true;
         graphicsQuality = QualitySettings.GetQualityLevel();
-        gameVolume = 0.6f;
+        gameVolume = 6f;
     }
-    void Update()
+
+    void OnLevelWasLoaded()
     {
-        
+        if(QualitySettings.GetQualityLevel() != graphicsQuality)
+        {
+            QualitySettings.SetQualityLevel(graphicsQuality);
+        }
+
+        if(Application.loadedLevel == 0)
+        {
+            subtitlesEnabled = true;
+            graphicsQuality = QualitySettings.GetQualityLevel();
+            gameVolume = 6f;
+        }
+    }
+
+    public void appear()
+    {
+
     }
 
     public bool getSubtitlesEnabled()
@@ -24,14 +43,14 @@ public class gameManager : MonoBehaviour {
         return subtitlesEnabled;
     }
 
+    public void setSubtitlesEnabled(bool par1Enabled)
+    {
+        subtitlesEnabled = par1Enabled;
+    }
+
     public void changeSubtitlesState()
     {
-        if (subtitlesEnabled)
-            subtitlesEnabled = false;
-        else
-            subtitlesEnabled = true;
-
-        QualitySettings.SetQualityLevel(1);
+        subtitlesEnabled = !subtitlesEnabled;
     }
 
     public int getQualitySettings()

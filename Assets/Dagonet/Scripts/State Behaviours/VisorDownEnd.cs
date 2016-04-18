@@ -5,6 +5,6 @@ public class VisorDownEnd : StateMachineBehaviour
 {
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("visorDown", false);
+        GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<Animator>().SetBool("visorDown", false);
     }
 }

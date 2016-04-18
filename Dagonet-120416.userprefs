@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Dagonet\Scripts\Cutscene Events\OpeningScenes.cs">
+    <Files>
+      <File FileName="Assets\Dagonet\Scripts\Cutscene Events\OpeningScenes.cs" Line="51" Column="43" />
+      <File FileName="Assets\Dagonet\Scripts\Cutscene Events\ChoiceButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Dagonet\Scripts\MoveAround.cs" Line="1" Column="1" />
+      <File FileName="Assets\Dagonet\Scripts\Target.cs" Line="1" Column="1" />
+      <File FileName="Assets\Dagonet\Scripts\Interaction Events\DetectiveBodyInteractionEvent.cs" Line="22" Column="87" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

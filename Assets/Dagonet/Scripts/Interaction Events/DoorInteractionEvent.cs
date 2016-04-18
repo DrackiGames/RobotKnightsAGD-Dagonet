@@ -19,7 +19,7 @@ public class DoorInteractionEvent : InteractionEvent
 
             yield return new WaitForSeconds(0.3f);
 
-            GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().Warp(corridorLocation.position);
+			GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().Warp(corridorLocation.position);
 
             string currentCamera = CSM.currentCamera;
 
@@ -32,7 +32,7 @@ public class DoorInteractionEvent : InteractionEvent
             yield return new WaitForSeconds(0.3f);
 
             CSM.isFadingIn = true;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+			GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
         }
     }
 }

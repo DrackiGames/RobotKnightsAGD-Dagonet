@@ -8,19 +8,17 @@ public class ExternalCamera : MonoBehaviour
     [SerializeField]
     private VisorManager visorManager;
     [SerializeField]
-    private ColorCorrectionCurves colourChange;
-    [SerializeField]
     private Text escapeText;
 	
 	void Update () 
     {
-	    if(visorManager.visorOn && !colourChange.enabled)
+	    if(visorManager.visorOn && !GetComponent<ColorCorrectionCurves>().enabled)
         {
-            colourChange.enabled = true;
+            GetComponent<ColorCorrectionCurves>().enabled = true;
         }
-        if(!visorManager.visorOn && colourChange.enabled)
+        if (!visorManager.visorOn && GetComponent<ColorCorrectionCurves>().enabled)
         {
-            colourChange.enabled = false;
+            GetComponent<ColorCorrectionCurves>().enabled = false;
         }
 	}
 }

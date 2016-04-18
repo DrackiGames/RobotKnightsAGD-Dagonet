@@ -3,9 +3,12 @@ using System.Collections;
 
 public class ModelReverseNormals : MonoBehaviour 
 {
+    [SerializeField]
+    private bool normalMesh;
+
 	void Start () 
 	{
-		Mesh mesh = GetComponent<SkinnedMeshRenderer>().sharedMesh;
+		Mesh mesh = !normalMesh ? GetComponent<SkinnedMeshRenderer>().sharedMesh : GetComponent<MeshFilter>().mesh;
 
 		Vector3[] normals = mesh.normals;
 		for (int i = 0 ; i < normals.Length; i++)

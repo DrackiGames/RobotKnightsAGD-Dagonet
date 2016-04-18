@@ -12,21 +12,26 @@ public class MoveAround : MonoBehaviour
     private NavMeshAgent navMeshAgentForPlayer;
     private Animator playerAnimator;
     private CameraSwitchManager CSM;
+	private VisorManager visorManager;
 
     public bool shouldWalk;
 	public bool idleLookAround;
 	public bool visorDown;
-	public bool started = false;
+	public bool started;
     public bool shouldSpeakMedium;
+	public bool visorCooldown;
 
 	void Start () 
     {
         navMeshAgentForPlayer = player.GetComponent<NavMeshAgent>();
         playerAnimator = player.GetComponent<Animator>();
+		CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
+		visorManager = GameObject.FindGameObjectWithTag ("VisorManager").GetComponent<VisorManager> ();
         shouldWalk = false;
 		visorDown = false;
-        shouldSpeakMedium = true;
 		started = false;
+        shouldSpeakMedium = true;
+		visorCooldown = false;
 		
 		int rand = Random.Range(0, 2);
 		if(rand == 0)
@@ -37,13 +42,11 @@ public class MoveAround : MonoBehaviour
 		{
 			idleLookAround = false;
 		}
-		
-        CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
 	}
 	
     void Update()
     {
-        if (shouldWalk)
+        if (navMeshAgentForPlayer.hasPath)
         {
             playerAnimator.SetBool("shouldWalk", true);
         }
@@ -63,21 +66,13 @@ public class MoveAround : MonoBehaviour
 				playerAnimator.SetBool("lookAround", false);
 			}
         }
-
-        //if(Vector3.Distance(navMeshAgentForPlayer.transform.position, navMeshAgentForPlayer.destination) < 0.05f)
-        //{
-        //    navMeshAgentForPlayer.destination = navMeshAgentForPlayer.transform.position;
-        //}
-
-        //if (!shouldWalk)
-        //{
-        //    playerAnimator.SetBool("shouldWalk", false);
-        //}
 		
-		if(Input.GetKeyDown(KeyCode.V))
+		if(Input.GetKeyDown(KeyCode.V) && !visorCooldown && !playerAnimator.GetBool("shouldWalk"))
 		{
 			started = true;
             visorDown = !visorDown;
+			visorManager.switchVisor(visorDown);
+			StartCoroutine(visorCooldownProcess());
 		}
 		
 		if(visorDown)
@@ -91,7 +86,7 @@ public class MoveAround : MonoBehaviour
             playerAnimator.SetBool("visorUp", true);
         }
 		
-        if (Input.GetMouseButtonDown(1) && !playerAnimator.GetBool("shouldTalkMedium"))
+        if (Input.GetMouseButtonDown(1) && !playerAnimator.GetBool("shouldTalkMedium") && !GameObject.Find("Button Manager").GetComponent<PauseButtonScript>().isPaused() && canMove())
         {
             RaycastHit hit = new RaycastHit();
             Ray ray = GameObject.Find(CSM.currentCamera).GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
@@ -100,7 +95,7 @@ public class MoveAround : MonoBehaviour
                 captured = hit.transform;
                 if (hit.collider.tag == "Ground")
                 {
-                    Debug.Log("MOVE AROUND");
+                    //Debug.Log("MOVE AROUND");
                     Vector3 destination = hit.point;
                     navMeshAgentForPlayer.destination = destination;
 					shouldWalk = true;
@@ -115,4 +110,18 @@ public class MoveAround : MonoBehaviour
     {
         playerAnimator.SetBool("shouldTalkMedium", par1ShouldTalkMedium);
     }
+
+	private IEnumerator visorCooldownProcess()
+	{
+		visorCooldown = true;
+
+		yield return new WaitForSeconds (1);
+
+		visorCooldown = false;
+	}
+
+	private bool canMove()
+	{
+		return !visorCooldown && !GameObject.Find ("DialogueManager").GetComponent<DialogueManager>().choicesEnabled();
+	}
 }

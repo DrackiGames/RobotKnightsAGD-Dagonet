@@ -11,8 +11,6 @@ public class TerminalInteractionEvent : InteractionEvent
 
     public override IEnumerator interactionEvents()
     {
-        TargetManager.disableTargets();
-
         yield return new WaitForSeconds(0.3f);
 
         CSM.isFadingIn = false;
@@ -27,7 +25,7 @@ public class TerminalInteractionEvent : InteractionEvent
         yield return new WaitForSeconds(0.3f);
 
         CSM.isFadingIn = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 
         yield return new WaitForSeconds(0.5f);
 

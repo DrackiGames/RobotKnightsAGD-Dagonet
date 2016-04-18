@@ -4,13 +4,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-//TO-DO:
-//Make sure size of text adapts to screen size
-//Add background to main area of menu
-//Add options for each menu selection
-
-
-
 public class buttonScript : MonoBehaviour
 {
     #region Serialized variables
@@ -66,6 +59,8 @@ public class buttonScript : MonoBehaviour
     private GameObject SettingsQualityLabel2;
     [SerializeField]
     private GameObject GameManager;
+	[SerializeField]
+	private CharacterShowreel characterShowreel;
     #endregion
 
     #region Variables
@@ -81,7 +76,7 @@ public class buttonScript : MonoBehaviour
     #endregion
 
     #region Enums
-    enum EButton
+    public enum EButton
     {
         none,
         newGame,
@@ -90,7 +85,7 @@ public class buttonScript : MonoBehaviour
         exit
     };
 
-    enum EState
+    public enum EState
     {
         idleNoButtonSelected,
         idleButtonSelected,
@@ -101,6 +96,11 @@ public class buttonScript : MonoBehaviour
 
     void Start()
     {
+        if(gameManager.Instance == null)
+        {
+            gameManager.Instance.appear();
+        }
+
         menuState = EState.idleNoButtonSelected;
         selectedButton = EButton.none;
         newState = false;
@@ -318,6 +318,7 @@ public class buttonScript : MonoBehaviour
     {
         if (menuState == EState.idleNoButtonSelected)
         {
+			characterShowreel.disableCharacters();
             switch (buttonClicked)
             {
                 case "New Game":
@@ -357,6 +358,7 @@ public class buttonScript : MonoBehaviour
         {
             if (buttonClicked == "Main Menu")
             {
+				characterShowreel.enableCharacters();
                 switch (selectedButton)
                 {
                     case EButton.newGame:
@@ -422,6 +424,7 @@ public class buttonScript : MonoBehaviour
 
     public void changeQualitySettings()
     {
+        gameManager.Instance.changeQualitySettings((int)SettingsQualitySlider.GetComponent<Slider>().value);
         QualitySettings.SetQualityLevel((int)SettingsQualitySlider.GetComponent<Slider>().value);
 
         switch (QualitySettings.GetQualityLevel())
@@ -446,4 +449,14 @@ public class buttonScript : MonoBehaviour
                 break;
         }
     }
+
+    public void changeSubtitleState()
+    {
+        gameManager.Instance.changeSubtitlesState();
+    }
+
+	public EState getMenuState()
+	{
+		return menuState;
+	}
 }

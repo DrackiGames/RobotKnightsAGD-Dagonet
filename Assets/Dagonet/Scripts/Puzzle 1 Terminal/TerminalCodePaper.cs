@@ -13,6 +13,8 @@ public class TerminalCodePaper : MonoBehaviour
 
     [SerializeField]
     private Terminal terminal;
+	[SerializeField]
+	private PlaceParts puzzle2;
 
     public void setupTerminalParchment(string par1TerminalCode)
     {
@@ -62,7 +64,7 @@ public class TerminalCodePaper : MonoBehaviour
             }
             GetComponent<Target>().resetItemTextCursorAndHint();
 
-            if(!terminal.inUse)
+			if(!terminal.inUse && !puzzle2.inUse)
             {
                 escapeText.enabled = true;
                 escapeText.GetComponent<Outline>().enabled = true;
@@ -75,7 +77,7 @@ public class TerminalCodePaper : MonoBehaviour
                 transform.GetComponent<BoxCollider>().enabled = true;
             }
 
-            if(!terminal.inUse)
+			if(!terminal.inUse && !puzzle2.inUse)
             {
                 escapeText.enabled = false;
                 escapeText.GetComponent<Outline>().enabled = false;

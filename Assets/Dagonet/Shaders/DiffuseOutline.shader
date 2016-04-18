@@ -1,9 +1,9 @@
 ﻿Shader "Outlined/Diffuse" 
 {
 	Properties {
-		_Color ("Main Color", Color) = (.5,.5,.5,1)
-		_OutlineColor ("Outline Color", Color) = (0,0,0,1)
-		_Outline ("Outline width", Range (.0001, 2.0)) = .005
+		_Colour ("Main Colour", Color) = (.5,.5,.5,1)
+		_OutlineColour ("Outline Colour", Color) = (0,0,0,1)
+		_Outline ("Outline width", Range (.0001, 5.0)) = .005
 		_MainTex ("Base (RGB)", 2D) = "white" { }
 	}
  
@@ -21,7 +21,7 @@ struct v2f {
 };
  
 uniform float _Outline;
-uniform float4 _OutlineColor;
+uniform float4 _OutlineColour;
  
 v2f vert(appdata v) {
 	// just make a copy of incoming vertex data but scaled according to normal direction
@@ -32,7 +32,7 @@ v2f vert(appdata v) {
 	float2 offset = TransformViewToProjection(norm.xy);
  
 	o.pos.xy += offset * _Outline;
-	o.color = _OutlineColor;
+	o.color = _OutlineColour;
 	return o;
 }
 ENDCG
@@ -43,7 +43,7 @@ CGPROGRAM
 #pragma surface surf Lambert
  
 sampler2D _MainTex;
-fixed4 _Color;
+fixed4 _Colour;
  
 struct Input 
 {
@@ -51,7 +51,7 @@ struct Input
 };
  
 void surf (Input IN, inout SurfaceOutput o) {
-	fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+	fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Colour;
 	o.Albedo = c.rgb;
 	o.Alpha = c.a;
 }
@@ -80,14 +80,14 @@ CGPROGRAM
 #pragma surface surf Lambert
  
 sampler2D _MainTex;
-fixed4 _Color;
+fixed4 _Colour;
  
 struct Input {
 	float2 uv_MainTex;
 };
  
 void surf (Input IN, inout SurfaceOutput o) {
-	fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+	fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Colour;
 	o.Albedo = c.rgb;
 	o.Alpha = c.a;
 }

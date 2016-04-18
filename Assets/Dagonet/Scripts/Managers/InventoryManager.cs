@@ -3,6 +3,36 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
+public class InventoryItem : System.IEquatable<InventoryItem>
+{
+	private string itemName;
+
+	public InventoryItem(string par1ItemName)
+	{
+		itemName = par1ItemName;
+	}
+
+	public string getItemName()
+	{
+		return itemName;
+	}
+
+	public void setItemName(string par1ItemName)
+	{
+		itemName = par1ItemName;
+	}
+
+	public bool Equals(InventoryItem par1ItemName)
+	{
+		return false;
+	}
+
+	public bool Equals(string par1ItemName)
+	{
+		return par1ItemName.Equals (itemName);
+	}
+}
+
 public class InventoryManager : MonoBehaviour 
 {
     [SerializeField]
@@ -18,19 +48,20 @@ public class InventoryManager : MonoBehaviour
     private Sprite detectiveItem2;
     [SerializeField]
     private Sprite detectiveItem3;
+	[SerializeField]
+	private Sprite detectiveItem4;
 
-    private List<string> inventoryList;
+    private List<InventoryItem> inventoryList;
     int inventoryCount;
 
 	void Start () 
     {
-        inventoryList = new List<string>();
-        inventoryList.Add("");
-        inventoryList.Add("");
-        inventoryList.Add("");
-        inventoryList.Add("");
+        inventoryList = new List<InventoryItem>();
+        inventoryList.Add(new InventoryItem("nothing"));
+		inventoryList.Add(new InventoryItem("nothing"));
+		inventoryList.Add(new InventoryItem("nothing"));
+		inventoryList.Add(new InventoryItem("nothing"));
         inventoryCount = 0;
-        addToInventory("detectiveItem1");
 	}
 	
 	// Update is called once per frame
@@ -39,7 +70,7 @@ public class InventoryManager : MonoBehaviour
         int count = 0;
         foreach (Transform slot in inventorySlotTransforms)
         {
-            string texture = inventoryList[count];
+            string texture = inventoryList[count].getItemName();
             slot.GetComponent<Image>().sprite = getSpriteNeeded(texture);
             count++;
         }
@@ -60,6 +91,21 @@ public class InventoryManager : MonoBehaviour
         }
 	}
 
+	public bool hasGotItem(string par1ItemID)
+	{
+		bool found = false;
+		foreach(InventoryItem item in inventoryList)
+		{
+			if(item.getItemName() == par1ItemID)
+			{
+				found = true;
+				break;
+			}
+		}
+
+		return found;
+	}
+
     public Sprite getSpriteNeeded(string par1ItemTextureIdentifier)
     {
         Sprite neededSprite = null;
@@ -68,7 +114,8 @@ public class InventoryManager : MonoBehaviour
             case "detectiveItem1": neededSprite = detectiveItem1; break;
             case "detectiveItem2": neededSprite = detectiveItem2; break;
             case "detectiveItem3": neededSprite = detectiveItem3; break;
-            case "": neededSprite = empty; break;
+			case "detectiveItem4": neededSprite = detectiveItem4; break;
+			case "nothing": neededSprite = empty; break;
         }
 
         return neededSprite;
@@ -77,30 +124,26 @@ public class InventoryManager : MonoBehaviour
     public void addToInventory(string par1ItemTextureIdentifier)
     {
         int insertCount = 0;
-        foreach(string item in inventoryList)
+		foreach(InventoryItem item in inventoryList)
         {
-            if(item == "")
+			if(item.getItemName() == "nothing")
             {
                 break;
             }
             insertCount++;
         }
-        inventoryList[insertCount] = par1ItemTextureIdentifier;
+        inventoryList[insertCount].setItemName(par1ItemTextureIdentifier);
         inventoryCount++;
     }
 
     public void removeFromInventory(string par1ItemTextureIdentifier)
     {
-        int removeCount = 0;
-        foreach (string item in inventoryList)
-        {
-            if (item == par1ItemTextureIdentifier)
-            {
-                break;
-            }
-            removeCount++;
-        }
-        inventoryList[removeCount] = "";
-        inventoryCount--;
+		foreach(InventoryItem item in inventoryList)
+		{
+			if(item.getItemName() == par1ItemTextureIdentifier)
+			{
+				item.setItemName("nothing");
+			}
+		}
     }
 }

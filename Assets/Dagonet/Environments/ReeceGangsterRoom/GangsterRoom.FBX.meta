@@ -1,0 +1,479 @@
+fileFormatVersion: 2
+guid: 5dbbb28b32f1ab44aa4b75d0715a97cc
+timeCreated: 1460488609
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: BevelledWall
+    100002: Box528
+    100004: CheckeredWindow
+    100006: CheckeredWindow006
+    100008: CheckeredWindow007
+    100010: CheckeredWindow008
+    100012: CheckeredWindow009
+    100014: CheckeredWindow010
+    100016: CheckeredWindow011
+    100018: CheckeredWindow012
+    100020: CheckeredWindow013
+    100022: CheckeredWindow014
+    100024: CheckeredWindow015
+    100026: CheckeredWindow016
+    100028: Desk
+    100030: Desk001
+    100032: Desk002
+    100034: Desk003
+    100036: Desk004
+    100038: Desk005
+    100040: Devil Chair
+    100042: Devil Chair001
+    100044: Devil Chair002
+    100046: Devil Chair003
+    100048: Devil Chair004
+    100050: Devil Chair005
+    100052: Door006
+    100054: Floor001
+    100056: Floor003
+    100058: Floor004
+    100060: Floor005
+    100062: Floor006
+    100064: Floor007
+    100066: Floor008
+    100068: Floor009
+    100070: Floor010
+    100072: Floor011
+    100074: Floor012
+    100076: Floor013
+    100078: Floor014
+    100080: Floor015
+    100082: Floor016
+    100084: Floor017
+    100086: Floor018
+    100088: Floor019
+    100090: //RootNode
+    100092: Monitor
+    100094: Monitor001
+    100096: Monitor002
+    100098: Monitor003
+    100100: Monitor004
+    100102: Monitor005
+    100104: Mouse Chair002
+    100106: Mouse Chair003
+    100108: Mouse Chair004
+    100110: Mouse Chair005
+    100112: Mouse Chair006
+    100114: Object083
+    100116: Plane314
+    100118: Plane315
+    100120: Plane316
+    100122: Plane317
+    100124: Plane318
+    100126: Roof
+    100128: SideWall
+    100130: SideWall003
+    100132: SideWall004
+    100134: SideWall005
+    100136: SideWall006
+    100138: SideWall007
+    100140: SideWall008
+    100142: SideWall009
+    100144: SideWall010
+    100146: SideWall011
+    100148: SideWall012
+    100150: SideWall013
+    100152: SideWall014
+    100154: SideWall015
+    100156: SideWall016
+    100158: SideWall017
+    100160: SideWall018
+    100162: SideWall019
+    400000: BevelledWall
+    400002: Box528
+    400004: CheckeredWindow
+    400006: CheckeredWindow006
+    400008: CheckeredWindow007
+    400010: CheckeredWindow008
+    400012: CheckeredWindow009
+    400014: CheckeredWindow010
+    400016: CheckeredWindow011
+    400018: CheckeredWindow012
+    400020: CheckeredWindow013
+    400022: CheckeredWindow014
+    400024: CheckeredWindow015
+    400026: CheckeredWindow016
+    400028: Desk
+    400030: Desk001
+    400032: Desk002
+    400034: Desk003
+    400036: Desk004
+    400038: Desk005
+    400040: Devil Chair
+    400042: Devil Chair001
+    400044: Devil Chair002
+    400046: Devil Chair003
+    400048: Devil Chair004
+    400050: Devil Chair005
+    400052: Door006
+    400054: Floor001
+    400056: Floor003
+    400058: Floor004
+    400060: Floor005
+    400062: Floor006
+    400064: Floor007
+    400066: Floor008
+    400068: Floor009
+    400070: Floor010
+    400072: Floor011
+    400074: Floor012
+    400076: Floor013
+    400078: Floor014
+    400080: Floor015
+    400082: Floor016
+    400084: Floor017
+    400086: Floor018
+    400088: Floor019
+    400090: //RootNode
+    400092: Monitor
+    400094: Monitor001
+    400096: Monitor002
+    400098: Monitor003
+    400100: Monitor004
+    400102: Monitor005
+    400104: Mouse Chair002
+    400106: Mouse Chair003
+    400108: Mouse Chair004
+    400110: Mouse Chair005
+    400112: Mouse Chair006
+    400114: Object083
+    400116: Plane314
+    400118: Plane315
+    400120: Plane316
+    400122: Plane317
+    400124: Plane318
+    400126: Roof
+    400128: SideWall
+    400130: SideWall003
+    400132: SideWall004
+    400134: SideWall005
+    400136: SideWall006
+    400138: SideWall007
+    400140: SideWall008
+    400142: SideWall009
+    400144: SideWall010
+    400146: SideWall011
+    400148: SideWall012
+    400150: SideWall013
+    400152: SideWall014
+    400154: SideWall015
+    400156: SideWall016
+    400158: SideWall017
+    400160: SideWall018
+    400162: SideWall019
+    2300000: BevelledWall
+    2300002: Box528
+    2300004: CheckeredWindow
+    2300006: CheckeredWindow006
+    2300008: CheckeredWindow007
+    2300010: CheckeredWindow008
+    2300012: CheckeredWindow009
+    2300014: CheckeredWindow010
+    2300016: CheckeredWindow011
+    2300018: CheckeredWindow012
+    2300020: CheckeredWindow013
+    2300022: CheckeredWindow014
+    2300024: CheckeredWindow015
+    2300026: CheckeredWindow016
+    2300028: Desk
+    2300030: Desk001
+    2300032: Desk002
+    2300034: Desk003
+    2300036: Desk004
+    2300038: Desk005
+    2300040: Devil Chair
+    2300042: Devil Chair001
+    2300044: Devil Chair002
+    2300046: Devil Chair003
+    2300048: Devil Chair004
+    2300050: Devil Chair005
+    2300052: Door006
+    2300054: Floor001
+    2300056: Floor003
+    2300058: Floor004
+    2300060: Floor005
+    2300062: Floor006
+    2300064: Floor007
+    2300066: Floor008
+    2300068: Floor009
+    2300070: Floor010
+    2300072: Floor011
+    2300074: Floor012
+    2300076: Floor013
+    2300078: Floor014
+    2300080: Floor015
+    2300082: Floor016
+    2300084: Floor017
+    2300086: Floor018
+    2300088: Floor019
+    2300090: Monitor
+    2300092: Monitor001
+    2300094: Monitor002
+    2300096: Monitor003
+    2300098: Monitor004
+    2300100: Monitor005
+    2300102: Mouse Chair002
+    2300104: Mouse Chair003
+    2300106: Mouse Chair004
+    2300108: Mouse Chair005
+    2300110: Mouse Chair006
+    2300112: Object083
+    2300114: Plane314
+    2300116: Plane315
+    2300118: Plane316
+    2300120: Plane317
+    2300122: Plane318
+    2300124: Roof
+    2300126: SideWall
+    2300128: SideWall003
+    2300130: SideWall004
+    2300132: SideWall005
+    2300134: SideWall006
+    2300136: SideWall007
+    2300138: SideWall008
+    2300140: SideWall009
+    2300142: SideWall010
+    2300144: SideWall011
+    2300146: SideWall012
+    2300148: SideWall013
+    2300150: SideWall014
+    2300152: SideWall015
+    2300154: SideWall016
+    2300156: SideWall017
+    2300158: SideWall018
+    2300160: SideWall019
+    3300000: BevelledWall
+    3300002: Box528
+    3300004: CheckeredWindow
+    3300006: CheckeredWindow006
+    3300008: CheckeredWindow007
+    3300010: CheckeredWindow008
+    3300012: CheckeredWindow009
+    3300014: CheckeredWindow010
+    3300016: CheckeredWindow011
+    3300018: CheckeredWindow012
+    3300020: CheckeredWindow013
+    3300022: CheckeredWindow014
+    3300024: CheckeredWindow015
+    3300026: CheckeredWindow016
+    3300028: Desk
+    3300030: Desk001
+    3300032: Desk002
+    3300034: Desk003
+    3300036: Desk004
+    3300038: Desk005
+    3300040: Devil Chair
+    3300042: Devil Chair001
+    3300044: Devil Chair002
+    3300046: Devil Chair003
+    3300048: Devil Chair004
+    3300050: Devil Chair005
+    3300052: Door006
+    3300054: Floor001
+    3300056: Floor003
+    3300058: Floor004
+    3300060: Floor005
+    3300062: Floor006
+    3300064: Floor007
+    3300066: Floor008
+    3300068: Floor009
+    3300070: Floor010
+    3300072: Floor011
+    3300074: Floor012
+    3300076: Floor013
+    3300078: Floor014
+    3300080: Floor015
+    3300082: Floor016
+    3300084: Floor017
+    3300086: Floor018
+    3300088: Floor019
+    3300090: Monitor
+    3300092: Monitor001
+    3300094: Monitor002
+    3300096: Monitor003
+    3300098: Monitor004
+    3300100: Monitor005
+    3300102: Mouse Chair002
+    3300104: Mouse Chair003
+    3300106: Mouse Chair004
+    3300108: Mouse Chair005
+    3300110: Mouse Chair006
+    3300112: Object083
+    3300114: Plane314
+    3300116: Plane315
+    3300118: Plane316
+    3300120: Plane317
+    3300122: Plane318
+    3300124: Roof
+    3300126: SideWall
+    3300128: SideWall003
+    3300130: SideWall004
+    3300132: SideWall005
+    3300134: SideWall006
+    3300136: SideWall007
+    3300138: SideWall008
+    3300140: SideWall009
+    3300142: SideWall010
+    3300144: SideWall011
+    3300146: SideWall012
+    3300148: SideWall013
+    3300150: SideWall014
+    3300152: SideWall015
+    3300154: SideWall016
+    3300156: SideWall017
+    3300158: SideWall018
+    3300160: SideWall019
+    4300000: Monitor003
+    4300002: Floor010
+    4300004: Floor007
+    4300006: Floor017
+    4300008: SideWall004
+    4300010: SideWall010
+    4300012: Floor003
+    4300014: Floor008
+    4300016: SideWall006
+    4300018: Desk005
+    4300020: Floor009
+    4300022: SideWall011
+    4300024: SideWall012
+    4300026: Floor011
+    4300028: Floor014
+    4300030: Floor015
+    4300032: Mouse Chair006
+    4300034: SideWall005
+    4300036: SideWall015
+    4300038: Floor012
+    4300040: SideWall
+    4300042: SideWall003
+    4300044: Floor013
+    4300046: Door006
+    4300048: Floor001
+    4300050: Floor006
+    4300052: Monitor005
+    4300054: Floor004
+    4300056: BevelledWall
+    4300058: Floor005
+    4300060: Floor016
+    4300062: Floor018
+    4300064: SideWall007
+    4300066: Plane317
+    4300068: Desk003
+    4300070: SideWall013
+    4300072: CheckeredWindow
+    4300074: CheckeredWindow006
+    4300076: CheckeredWindow007
+    4300078: CheckeredWindow008
+    4300080: Devil Chair004
+    4300082: CheckeredWindow009
+    4300084: CheckeredWindow010
+    4300086: CheckeredWindow011
+    4300088: CheckeredWindow012
+    4300090: CheckeredWindow013
+    4300092: CheckeredWindow015
+    4300094: CheckeredWindow016
+    4300096: Floor019
+    4300098: Desk002
+    4300100: Devil Chair
+    4300102: Mouse Chair002
+    4300104: Mouse Chair003
+    4300106: SideWall018
+    4300108: Devil Chair001
+    4300110: Monitor
+    4300112: Devil Chair002
+    4300114: SideWall016
+    4300116: Monitor001
+    4300118: Monitor002
+    4300120: Desk001
+    4300122: SideWall019
+    4300124: SideWall008
+    4300126: CheckeredWindow014
+    4300128: Desk
+    4300130: SideWall017
+    4300132: Monitor004
+    4300134: Box528
+    4300136: Mouse Chair005
+    4300138: Desk004
+    4300140: Mouse Chair004
+    4300142: Devil Chair003
+    4300144: Devil Chair005
+    4300146: Object083
+    4300148: SideWall009
+    4300150: SideWall014
+    4300152: Plane318
+    4300154: Plane314
+    4300156: Plane315
+    4300158: Plane316
+    4300160: Roof
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 180
+    splitTangentsAcrossUV: 1
+    normalImportMode: 1
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

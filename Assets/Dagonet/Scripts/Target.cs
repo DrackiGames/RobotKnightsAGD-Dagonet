@@ -22,53 +22,54 @@ public class Target : MonoBehaviour
     //
 
     private Color startingColour;
-    private Text itemDisplayText;
+    public Text itemDisplayText;
 
     //Distance control
     public bool distanceControl;
     public float distanceFactor;
     //
 
-    private TargetManager targetManager;
-
     void Start()
     {
-        if (GetComponent<SkinnedMeshRenderer>() != null) 
+        if (visorObject && GetComponent<SkinnedMeshRenderer>() != null) 
         {
             startingColour = GetComponent<SkinnedMeshRenderer>().material.color;
         }
-        if(GetComponent<MeshRenderer>() != null)
+        if(visorObject && GetComponent<MeshRenderer>() != null)
         {
             startingColour = GetComponent<MeshRenderer>().material.color;
         }
-        if (GetComponent<SpriteRenderer>() != null)
-        {
-            startingColour = GetComponent<SpriteRenderer>().material.color;
-        }
 
-        itemDisplayText = GameObject.FindGameObjectWithTag("ItemText").GetComponent<Text>();
         image.enabled = false;
         mouseTip.enabled = false;
-
-        TargetManager.addTarget(this);
     }
 
 	void OnMouseOver()
     {
-        if (((visorObject && visorManager.visorOn) || !visorObject))
+		if (!GameObject.Find("Button Manager").GetComponent<PauseButtonScript>().isPaused())
         {
             overItem = true;
             if (GetComponent<SkinnedMeshRenderer>() != null)
             {
-                GetComponent<SkinnedMeshRenderer>().material.color = Color.white;
+				if(visorObject)
+				{
+					GetComponent<SkinnedMeshRenderer>().material.color = Color.white;
+				}
+				else
+				{
+					GetComponent<SkinnedMeshRenderer>().material.SetColor("_OutlineColour", new Color(1.0f, otherComponents, otherComponents));
+				}
             }
             if (GetComponent<MeshRenderer>() != null)
             {
-                GetComponent<MeshRenderer>().material.color = Color.white;
-            }
-            if (GetComponent<SpriteRenderer>() != null)
-            {
-                GetComponent<SpriteRenderer>().material.color = Color.white;
+				if(visorObject)
+				{
+					GetComponent<MeshRenderer>().material.color = Color.white;
+				}
+				else
+				{
+					GetComponent<MeshRenderer>().material.SetColor("_OutlineColour", new Color(1.0f, otherComponents, otherComponents));
+				}
             }
 
             itemDisplayText.text = targetName;
@@ -81,20 +82,30 @@ public class Target : MonoBehaviour
 
     void OnMouseExit()
     {
-        if (((visorObject && visorManager.visorOn) || !visorObject))
+		if (!GameObject.Find("Button Manager").GetComponent<PauseButtonScript>().isPaused())
         {
             overItem = false;
             if (GetComponent<SkinnedMeshRenderer>() != null)
             {
-                GetComponent<SkinnedMeshRenderer>().material.color = startingColour;
+				if(visorObject)
+				{
+					GetComponent<SkinnedMeshRenderer>().material.color = startingColour;
+				}
+				else
+				{
+					GetComponent<SkinnedMeshRenderer>().material.SetColor("_OutlineColour", Color.black);
+				}
             }
             if (GetComponent<MeshRenderer>() != null)
             {
-                GetComponent<MeshRenderer>().material.color = startingColour;
-            }
-            if (GetComponent<SpriteRenderer>() != null)
-            {
-                GetComponent<SpriteRenderer>().material.color = startingColour;
+				if(visorObject)
+				{
+					GetComponent<MeshRenderer>().material.color = startingColour;
+				}
+				else
+				{
+					GetComponent<MeshRenderer>().material.SetColor("_OutlineColour", Color.black);
+				}
             }
 
             itemDisplayText.text = "";
@@ -103,21 +114,42 @@ public class Target : MonoBehaviour
             mouseTip.enabled = false;
         }
     }
-
+	
     private bool ableToDoTheHighlighting()
     {
         return !GameObject.Find("TerminalScreen").GetComponent<Terminal>().inUse &&
             !GameObject.Find("Puzzle1PaperCamera").transform.parent.GetComponent<TerminalCodePaper>().inUse;
     }
 
+	float otherComponents = 1.0f;
+	bool flip = false;
     void Update()
     {
+		if(flip)
+		{
+			if(otherComponents >= 1)
+			{
+				otherComponents = 1;
+				flip = false;
+			}
+			otherComponents += Time.deltaTime * 2;
+		}
+		else
+		{
+			if(otherComponents <= 0)
+			{
+				otherComponents = 0;
+				flip = true;
+			}
+			otherComponents -= Time.deltaTime * 2;
+		}
+
         //if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
-        if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
+		if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
         {
-            if (inspectionEvent != null && !GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("shouldTalkMedium"))
+            if (inspectionEvent != null && !GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<Animator>().GetBool("shouldTalkMedium"))
             {
-                if(!GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("shouldTalkMedium"))
+				if(!GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<Animator>().GetBool("shouldTalkMedium"))
                 {
                     Debug.Log("INSPECT");
                     StartCoroutine(inspectionEvent.inspectionEvents());
@@ -126,22 +158,25 @@ public class Target : MonoBehaviour
         }
 
         //if (Input.GetMouseButtonDown(1) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
-        if (Input.GetMouseButtonDown(1) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
+		if (Input.GetMouseButtonDown(1) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
         {
+			Debug.Log ("HI");
             RaycastHit hit;
             if (Physics.Raycast(new Ray((parentTransform ? transform.parent.position : transform.position) + getDirectionAway() * (distanceControl ? distanceFactor : 0.5f), Vector3.down), out hit, 1000, layerMask))
             {
+				Debug.Log(hit.transform.name);
                 if (hit.transform.tag == "Ground")
                 {
-                    if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, hit.transform.position) > 0.3f)
+					if (Vector3.Distance(GameObject.FindGameObjectWithTag("MainCharacter").transform.position, hit.transform.position) > 0.3f)
                     {
                         GameObject.Find(GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>().currentCamera).GetComponent<MoveAround>().shouldWalk = true;
-                        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().destination = hit.point;
+						Debug.Log ("CHECK");
+						GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().destination = hit.point;
                     }
 
                     if (interactionEvent != null)
                     {
-                        if(!GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().GetBool("shouldTalkMedium"))
+						if(!GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<Animator>().GetBool("shouldTalkMedium"))
                         {
                             Debug.Log("MOVE AND INTERACT");
                             resetItemTextCursorAndHint();
@@ -157,15 +192,25 @@ public class Target : MonoBehaviour
     {
         if (GetComponent<SkinnedMeshRenderer>() != null)
         {
-            GetComponent<SkinnedMeshRenderer>().material.color = startingColour;
+			if(visorObject)
+			{
+				GetComponent<SkinnedMeshRenderer>().material.color = startingColour;
+			}
+			else
+			{
+				GetComponent<SkinnedMeshRenderer>().material.SetColor("_OutlineColour", Color.black);
+			}
         }
         if (GetComponent<MeshRenderer>() != null)
         {
-            GetComponent<MeshRenderer>().material.color = startingColour;
-        }
-        if (GetComponent<SpriteRenderer>() != null)
-        {
-            GetComponent<SpriteRenderer>().material.color = startingColour;
+			if(visorObject)
+			{
+				GetComponent<MeshRenderer>().material.color = startingColour;
+			}
+			else
+			{
+				GetComponent<MeshRenderer>().material.SetColor("_OutlineColour", Color.black);
+			}
         }
 
         itemDisplayText.text = "";
@@ -217,4 +262,9 @@ public class Target : MonoBehaviour
 
         return newVector;
     }
+
+	public void setInspectionEvent(InspectionEvent par1InspectionEvent)
+	{
+		inspectionEvent = par1InspectionEvent;
+	}
 }

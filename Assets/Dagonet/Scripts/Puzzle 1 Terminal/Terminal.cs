@@ -21,8 +21,11 @@ public class Terminal : MonoBehaviour
     public Target target;
 
     public TerminalCodePaper codePaper;
+	public PlaceParts puzzle2;
 
-    public Transform[] doorLights;
+    public Transform[] doorLightSpheres;
+	public Light[] doorLights;
+	public Material greenMaterial;
 
     [SerializeField]
     private Text escapeText;
@@ -63,10 +66,14 @@ public class Terminal : MonoBehaviour
         }
         else
         {
-            foreach(Transform light in doorLights)
+			foreach(Transform sphere in doorLightSpheres)
+			{
+				sphere.GetComponent<MeshRenderer>().material = greenMaterial;
+			}
+
+            foreach(Light light in doorLights)
             {
-                light.GetComponent<MeshRenderer>().material.color = Color.green;
-                light.GetComponentInChildren<Light>().color = Color.green;
+                light.color = Color.green;
             }
         }
 
@@ -82,7 +89,7 @@ public class Terminal : MonoBehaviour
                 StartCoroutine(exitTerminal());
             }
 
-            if(!codePaper.inUse)
+            if(!codePaper.inUse && !puzzle2.inUse)
             {
                 escapeText.enabled = true;
                 escapeText.GetComponent<Outline>().enabled = true;
@@ -96,7 +103,7 @@ public class Terminal : MonoBehaviour
                 terminal.enabled = true;
             }
 
-            if (!codePaper.inUse)
+			if (!codePaper.inUse && !puzzle2.inUse)
             {
                 escapeText.enabled = false;
                 escapeText.GetComponent<Outline>().enabled = false;
@@ -130,7 +137,7 @@ public class Terminal : MonoBehaviour
 
     private IEnumerator exitTerminal()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 
         CameraSwitchManager CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
         CSM.isFadingIn = false;
@@ -140,13 +147,12 @@ public class Terminal : MonoBehaviour
         GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
         GameObject.Find("TerminalCamera").GetComponent<Camera>().enabled = false;
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 
         inUse = false;
 
         yield return new WaitForSeconds(0.3f);
 
         CSM.isFadingIn = true;
-        TargetManager.enableTargets();
     }
 }

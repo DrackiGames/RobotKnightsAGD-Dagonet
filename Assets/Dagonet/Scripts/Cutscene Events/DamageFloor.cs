@@ -36,7 +36,7 @@ public class DamageFloor : MonoBehaviour
 
     void OnCollisionEnter(Collision par1Collision)
     {
-        if (par1Collision.transform.tag == "Player" && !fallen)
+        if (par1Collision.transform.tag == "MainCharacter" && !fallen)
         {
             Debug.Log("DAMAGE FLOOR");
 
@@ -66,7 +66,7 @@ public class DamageFloor : MonoBehaviour
 
         yield return new WaitForSeconds(0.3f);
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().Warp(officeLocation.position);
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().Warp(officeLocation.position);
 
         string currentCamera = CSM.currentCamera;
 
@@ -79,7 +79,7 @@ public class DamageFloor : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
 
         CSM.isFadingIn = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().ResetPath();
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
     }
     
 }

@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 99531ea3a2028c24ab6fbe5e4d10aa69, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -78,6 +78,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Ramp
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -131,6 +138,14 @@ Material:
         first:
           name: _Outline
         second: .0199999996
+      data:
+        first:
+          name: _Tess
+        second: 4
+      data:
+        first:
+          name: _Phong
+        second: .100000001
     m_Colors:
       data:
         first:
@@ -143,4 +158,12 @@ Material:
       data:
         first:
           name: _OutlineColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _Colour
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _OutlineColour
         second: {r: 0, g: 0, b: 0, a: 1}
