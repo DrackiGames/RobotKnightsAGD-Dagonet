@@ -14,25 +14,28 @@ public class CameraSwitchManager : MonoBehaviour
     public Terminal mainTerminal;
     public TerminalCodePaper parchment;
 
+	private bool switchForCameras;
+
 	void Start () 
     {
-        
+		switchForCameras = false;
 	}
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.Alpha1))
-        {
-            switchCamera(coupleCamera1, coupleCamera2);
-        }
-        if(Input.GetKey(KeyCode.Alpha2))
-        {
-            switchCamera(coupleCamera2, coupleCamera1);
-        }
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            isFadingIn = !isFadingIn;
-        }
+		if(Input.GetKeyDown(KeyCode.Tab))
+		{
+			if(switchForCameras)
+			{
+				switchCamera(coupleCamera2, coupleCamera1);
+				switchForCameras = false;
+			}
+			else
+			{
+				switchCamera(coupleCamera1, coupleCamera2);
+				switchForCameras = true;
+			}
+		}
 
         if(!isFadingIn && blackImage.color.a < 255)
         {

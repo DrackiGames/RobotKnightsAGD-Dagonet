@@ -103,4 +103,11 @@ public class CharacterShowreel : MonoBehaviour {
 			}
 		}
 	}
+
+	private IEnumerator enableCharactersProcess()
+	{
+		yield return new WaitForSeconds (1.0f);
+
+		enableCharacters ();
+	}
 }

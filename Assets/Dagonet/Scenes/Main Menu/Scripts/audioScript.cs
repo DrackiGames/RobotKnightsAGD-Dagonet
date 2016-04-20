@@ -130,7 +130,7 @@ public class audioScript : MonoBehaviour {
 
     public void changeVolume()
     {
-        float gameVolume = (float)(volumeSlider.normalizedValue);
+        float gameVolume = (float)(volumeSlider.normalizedValue);        
 
         if (gameVolume == 0)
         {
@@ -162,5 +162,9 @@ public class audioScript : MonoBehaviour {
         }
 
         gameManager.Instance.changeGameVolume(volumeSlider.normalizedValue);
+
+        SettingsContainer sc = SettingsContainer.loadSettings(Application.dataPath + "\\Resources\\Settings.xml");
+        sc.gameSettings[0].volumeValue = (int)volumeSlider.value;
+        sc.saveSettings(Application.dataPath + "\\Resources\\Settings.xml");
     }
 }

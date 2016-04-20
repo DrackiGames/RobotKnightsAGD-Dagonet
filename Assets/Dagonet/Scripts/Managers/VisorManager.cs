@@ -10,6 +10,9 @@ public class VisorManager : MonoBehaviour
     private Text visorText;
     private CameraSwitchManager CSM;
 
+	[SerializeField]
+	private Camera[] sceneCameras;
+
 	void Start () 
     {
         visorOn = false;
@@ -23,13 +26,21 @@ public class VisorManager : MonoBehaviour
 		{
 			visorOn = true;
 			visorText.text = "VISOR ENABLED";
-			GameObject.Find(CSM.currentCamera).transform.GetComponent<ColorCorrectionCurves>().enabled = true;
+
+			foreach(Camera sceneCamera in sceneCameras)
+			{
+				sceneCamera.transform.GetComponent<ColorCorrectionCurves>().enabled = true;
+			}
 		}
 		else
 		{
 			visorOn = false;
 			visorText.text = "";
-			GameObject.Find(CSM.currentCamera).transform.GetComponent<ColorCorrectionCurves>().enabled = false;
+
+			foreach(Camera sceneCamera in sceneCameras)
+			{
+				sceneCamera.transform.GetComponent<ColorCorrectionCurves>().enabled = false;
+			}
 		}
 	}
 }

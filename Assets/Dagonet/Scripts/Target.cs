@@ -22,12 +22,18 @@ public class Target : MonoBehaviour
     //
 
     private Color startingColour;
+	public float startingOutlineWidth;
     public Text itemDisplayText;
 
     //Distance control
     public bool distanceControl;
     public float distanceFactor;
     //
+
+	float otherComponents = 1.0f;
+	float thickness = 1.0f;
+	bool flip = false;
+	bool thicknessFlip = false;
 
     void Start()
     {
@@ -39,6 +45,19 @@ public class Target : MonoBehaviour
         {
             startingColour = GetComponent<MeshRenderer>().material.color;
         }
+
+		if(!visorObject && GetComponent<SkinnedMeshRenderer>() != null)
+		{
+			startingOutlineWidth = GetComponent<SkinnedMeshRenderer>().material.GetFloat("_Outline");
+		}
+		else if(!visorObject && GetComponent<MeshRenderer>() != null)
+		{
+			startingOutlineWidth = GetComponent<MeshRenderer>().material.GetFloat("_Outline");
+		}
+		else
+		{
+			startingOutlineWidth = 0;
+		}
 
         image.enabled = false;
         mouseTip.enabled = false;
@@ -58,6 +77,7 @@ public class Target : MonoBehaviour
 				else
 				{
 					GetComponent<SkinnedMeshRenderer>().material.SetColor("_OutlineColour", new Color(1.0f, otherComponents, otherComponents));
+					GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Outline", startingOutlineWidth * thickness);
 				}
             }
             if (GetComponent<MeshRenderer>() != null)
@@ -69,6 +89,7 @@ public class Target : MonoBehaviour
 				else
 				{
 					GetComponent<MeshRenderer>().material.SetColor("_OutlineColour", new Color(1.0f, otherComponents, otherComponents));
+					GetComponent<MeshRenderer>().material.SetFloat("_Outline", startingOutlineWidth * thickness);
 				}
             }
 
@@ -94,6 +115,7 @@ public class Target : MonoBehaviour
 				else
 				{
 					GetComponent<SkinnedMeshRenderer>().material.SetColor("_OutlineColour", Color.black);
+					GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Outline", startingOutlineWidth);
 				}
             }
             if (GetComponent<MeshRenderer>() != null)
@@ -105,6 +127,7 @@ public class Target : MonoBehaviour
 				else
 				{
 					GetComponent<MeshRenderer>().material.SetColor("_OutlineColour", Color.black);
+					GetComponent<MeshRenderer>().material.SetFloat("_Outline", startingOutlineWidth);
 				}
             }
 
@@ -120,9 +143,7 @@ public class Target : MonoBehaviour
         return !GameObject.Find("TerminalScreen").GetComponent<Terminal>().inUse &&
             !GameObject.Find("Puzzle1PaperCamera").transform.parent.GetComponent<TerminalCodePaper>().inUse;
     }
-
-	float otherComponents = 1.0f;
-	bool flip = false;
+	
     void Update()
     {
 		if(flip)
@@ -142,6 +163,26 @@ public class Target : MonoBehaviour
 				flip = true;
 			}
 			otherComponents -= Time.deltaTime * 2;
+		}
+
+		if(thicknessFlip)
+		{
+			if(thickness >= 2f)
+			{
+				thickness = 2f;
+				thicknessFlip = false;
+			}
+			thickness += Time.deltaTime;
+		}
+		else
+		{
+			if(thickness <= 1)
+			{
+				thickness = 1;
+				thicknessFlip = true;
+			}
+
+			thickness -= Time.deltaTime;
 		}
 
         //if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))

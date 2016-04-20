@@ -45,6 +45,7 @@ public class gameManager : Singleton<gameManager>
 
     public void setSubtitlesEnabled(bool par1Enabled)
     {
+        Debug.LogWarning("Subtitles enabled: " + par1Enabled);
         subtitlesEnabled = par1Enabled;
     }
 

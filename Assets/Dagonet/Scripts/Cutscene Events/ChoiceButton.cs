@@ -19,11 +19,6 @@ public class ChoiceButton : MonoBehaviour
 		startingScale = transform.localScale;
 	}
 
-	void OnMouseEnter()
-	{
-		Debug.Log ("BUTTON TEST");
-	}
-
 	public void highlightChoiceButton()
 	{
 		transform.localScale = startingScale * 1.1f;

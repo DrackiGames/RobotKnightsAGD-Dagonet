@@ -54,38 +54,49 @@ public class PauseButtonScript : MonoBehaviour
     {
         gameManager.Instance.changeQualitySettings((int)SettingsQualitySlider.GetComponent<Slider>().value);
         QualitySettings.SetQualityLevel((int)SettingsQualitySlider.GetComponent<Slider>().value);
+        SettingsContainer sc = SettingsContainer.loadSettings(Application.dataPath + "\\Resources\\Settings.xml");
 
         switch (QualitySettings.GetQualityLevel())
         {
             case 0:
                 SettingsQualityLabel2.GetComponent<Text>().text = "Fastest";
+                sc.gameSettings[0].qualityValue = 0;
                 break;
             case 1:
                 SettingsQualityLabel2.GetComponent<Text>().text = "Fast";
+                sc.gameSettings[0].qualityValue = 1;
                 break;
             case 2:
                 SettingsQualityLabel2.GetComponent<Text>().text = "Simple";
+                sc.gameSettings[0].qualityValue = 2;
                 break;
             case 3:
                 SettingsQualityLabel2.GetComponent<Text>().text = "Good";
+                sc.gameSettings[0].qualityValue = 3;
                 break;
             case 4:
                 SettingsQualityLabel2.GetComponent<Text>().text = "Beautiful";
+                sc.gameSettings[0].qualityValue = 4;
                 break;
             case 5:
                 SettingsQualityLabel2.GetComponent<Text>().text = "Fantastic";
+                sc.gameSettings[0].qualityValue = 5;
                 break;
         }
+
+        sc.saveSettings(Application.dataPath + "\\Resources\\Settings.xml");
     }
 
     public void setSubtitleState(bool par1Enabled)
-    {
+    {     
         gameManager.Instance.setSubtitlesEnabled(par1Enabled);
     }
 
     public void changeSubtitleState()
     {
         gameManager.Instance.changeSubtitlesState();
+        SettingsContainer sc = SettingsContainer.loadSettings(Application.dataPath + "\\Resources\\Settings.xml");
+        sc.gameSettings[0].subtitlesEnabled = gameManager.Instance.getSubtitlesEnabled();
     }
 
     public void loadMainMenuPrompt()

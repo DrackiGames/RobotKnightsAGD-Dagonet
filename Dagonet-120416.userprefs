@@ -1,12 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Dagonet\Scripts\Cutscene Events\OpeningScenes.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Dagonet\Scripts\Managers\DialogueManager.cs">
     <Files>
-      <File FileName="Assets\Dagonet\Scripts\Cutscene Events\OpeningScenes.cs" Line="51" Column="43" />
-      <File FileName="Assets\Dagonet\Scripts\Cutscene Events\ChoiceButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Dagonet\Scripts\MoveAround.cs" Line="1" Column="1" />
+      <File FileName="Assets\Dagonet\Scripts\Interaction Events\GangsterInteractionEvent.cs" Line="19" Column="30" />
+      <File FileName="Assets\Dagonet\Scripts\Interaction Events\CourtyardGangsterRoomDoorInteractionEvent.cs" Line="4" Column="23" />
+      <File FileName="Assets\Dagonet\Scripts\Interaction Events\DetectiveInteractionEvent.cs" Line="26" Column="4" />
+      <File FileName="Assets\Dagonet\Scripts\Managers\DialogueManager.cs" Line="298" Column="4" />
+      <File FileName="Assets\Dagonet\Scripts\Cutscene Events\ChoiceButton.cs" Line="37" Column="34" />
+      <File FileName="Assets\Dagonet\Scripts\Interaction Events\InteractionEvent.cs" Line="1" Column="1" />
       <File FileName="Assets\Dagonet\Scripts\Target.cs" Line="1" Column="1" />
-      <File FileName="Assets\Dagonet\Scripts\Interaction Events\DetectiveBodyInteractionEvent.cs" Line="22" Column="87" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

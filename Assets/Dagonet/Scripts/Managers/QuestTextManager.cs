@@ -13,13 +13,13 @@ public class QuestTextManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        fadeIn = false;
+		fadeIn = false;
 
-        popUpQuest("ESCAPE THE TERMINAL ROOM!");
+		popUpQuest("ESCAPE THE TERMINAL ROOM!");
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void	 Update () 
     {
 	    if(!fadeIn)
         {

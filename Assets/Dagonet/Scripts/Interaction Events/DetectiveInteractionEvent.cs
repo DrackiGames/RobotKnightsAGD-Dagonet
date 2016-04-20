@@ -27,7 +27,7 @@ public class DetectiveInteractionEvent : InteractionEvent
 			yield return new WaitForSeconds(introLines[2].length + 0.3f);
 
 			//Choice starts here
-			dialogueManager.choiceTwoSetup ("I was hooked up to a terminal", "[LIE] Was just a passerby");
+			dialogueManager.choiceTwoSetup ("I was hooked up to a terminal", "[LIE] I have never been here \nbefore");
 
 			dialogueManager.setCurrentChoiceID(0);
 			
