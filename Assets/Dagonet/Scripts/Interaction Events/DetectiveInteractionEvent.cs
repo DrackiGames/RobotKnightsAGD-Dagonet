@@ -9,7 +9,7 @@ public class DetectiveInteractionEvent : InteractionEvent
 
 	public override IEnumerator interactionEvents()
 	{
-		if (!GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().isPlaying)
+		if (!dialogueManager.detectiveCompleted && !GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().isPlaying)
 		{
 			GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = false;
 			GameObject.Find ("CutsceneCameraDetective").GetComponent<Camera> ().enabled = true;

@@ -6,18 +6,19 @@ public class DetectiveBodyInteractionEvent : InteractionEvent
 {
 	[SerializeField]
 	private PlaceParts puzzle2;
-	
+
 	public override IEnumerator interactionEvents()
 	{
 		if(!puzzle2.isCompleted())
 		{
-
 			yield return new WaitForSeconds(0.3f);
 			
 			CSM.isFadingIn = false;
+
+			Debug.Log("DOES GET HERE");
 			
 			yield return new WaitForSeconds(0.3f);
-			
+
 			GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = false;
 			GameObject.Find("Puzzle2FixDetectiveCamera").GetComponent<Camera>().enabled = true;
 			
@@ -32,8 +33,6 @@ public class DetectiveBodyInteractionEvent : InteractionEvent
 
 			GameObject.Find ("EscapeText").GetComponent<Text>().enabled = true;
 			GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = true;
-
-			Debug.Log ("FIX");
 			
 			//		if (!GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().isPlaying)
 			//		{
@@ -52,7 +51,7 @@ public class DetectiveBodyInteractionEvent : InteractionEvent
 		}
 	}
 	
-	private IEnumerator exitPuzzle2()
+	public IEnumerator exitPuzzle2()
 	{
 		GameObject.Find ("EscapeText").GetComponent<Text>().enabled = false;
 		GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = false;

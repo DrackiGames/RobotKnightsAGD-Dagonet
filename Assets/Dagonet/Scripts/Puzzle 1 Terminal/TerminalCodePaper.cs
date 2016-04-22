@@ -38,7 +38,7 @@ public class TerminalCodePaper : MonoBehaviour
             }
 
             numbersOnParchment[randomNumber].sprite = numbers[System.Convert.ToInt16(par1TerminalCode[i].ToString()) - 1];
-            numbersOnParchment[randomNumber].transform.localScale *= 1.3f;
+            numbersOnParchment[randomNumber].transform.localScale *= 1.4f;
             numbersOnParchment[randomNumber].transform.Rotate(Vector3.forward, Random.Range(0, 360.0f));
 
             alreadyTaken.Add(randomNumber);

@@ -15,6 +15,8 @@ public class DamageFloor : MonoBehaviour
     private string sceneCamera1;
     [SerializeField]
     private string sceneCamera2;
+	[SerializeField]
+	private QuestTextManager questTextManager;
     
     public bool fallen;
     public bool fallFinished;
@@ -80,6 +82,10 @@ public class DamageFloor : MonoBehaviour
 
         CSM.isFadingIn = true;
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
+
+		yield return new WaitForSeconds(0.3f);
+
+		//questTextManager.popUpQuest ("INSPECT AND INTERACT WITH THE BROKEN DETECTIVE");
     }
     
 }

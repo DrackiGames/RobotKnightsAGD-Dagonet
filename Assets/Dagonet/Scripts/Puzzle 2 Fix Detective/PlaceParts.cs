@@ -20,9 +20,17 @@ public class PlaceParts : MonoBehaviour
 
 	[SerializeField]
 	private InventoryManager inventoryManager;
+
+	[SerializeField]
+	private DetectiveBodyInteractionEvent detectiveBodyEvent;
+	[SerializeField]
+	private Transform[] detectives;
+	[SerializeField]
+	private Transform[] realFixPieces;
 	
 	private bool detectiveFound;
 	private int completion;
+	private bool detectiveGotUp;
 
 	public bool inUse;
 
@@ -30,13 +38,33 @@ public class PlaceParts : MonoBehaviour
 	{
 		detectiveFound = false;
 		completion = 0;
+		detectiveGotUp = false;
 		inUse = false;
 		placeHat ();
 	}
 
 	void Update () 
 	{
-		
+		if(!detectiveGotUp)
+		{
+			int numberActive = 0;
+			
+			foreach(Transform pieces in realFixPieces)
+			{
+				if(pieces.gameObject.activeSelf)
+				{
+					numberActive++;
+				}
+			}
+			
+			if(numberActive == 4)
+			{
+				detectiveGotUp = true;
+				StartCoroutine(detectiveBodyEvent.exitPuzzle2());
+				detectives[0].gameObject.SetActive(false);
+				detectives[1].gameObject.SetActive(true);
+			}
+		}
 	}
 
 	public InventoryManager getInventoryManager()

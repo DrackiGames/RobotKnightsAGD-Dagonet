@@ -50,6 +50,10 @@ public class InventoryManager : MonoBehaviour
     private Sprite detectiveItem3;
 	[SerializeField]
 	private Sprite detectiveItem4;
+	[SerializeField]
+	private Sprite batteryItem1;
+	[SerializeField]
+	private Sprite batteryItem2;
 
     private List<InventoryItem> inventoryList;
     int inventoryCount;
@@ -115,6 +119,8 @@ public class InventoryManager : MonoBehaviour
             case "detectiveItem2": neededSprite = detectiveItem2; break;
             case "detectiveItem3": neededSprite = detectiveItem3; break;
 			case "detectiveItem4": neededSprite = detectiveItem4; break;
+			case "batteryItem1": neededSprite = batteryItem1; break;
+			case "batteryItem2": neededSprite = batteryItem2; break;
 			case "nothing": neededSprite = empty; break;
         }
 
@@ -145,5 +151,6 @@ public class InventoryManager : MonoBehaviour
 				item.setItemName("nothing");
 			}
 		}
+		inventoryCount--;
     }
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f5b31257ad1e24b4280b3167f4a1bf82
-timeCreated: 1461003520
+timeCreated: 1461260308
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -97,6 +97,7 @@ ModelImporter:
     100178: Wall4_SecondaryBricks
     100180: BrickWalls005
     100182: Wall3_SecondaryBricks001
+    100184: Wall5
     400000: Box460
     400002: Box513
     400004: Box514
@@ -189,6 +190,7 @@ ModelImporter:
     400178: Wall4_SecondaryBricks
     400180: BrickWalls005
     400182: Wall3_SecondaryBricks001
+    400184: Wall5
     2300000: Box460
     2300002: Box513
     2300004: Box514
@@ -279,6 +281,7 @@ ModelImporter:
     2300174: Wall4_SecondaryBricks
     2300176: BrickWalls005
     2300178: Wall3_SecondaryBricks001
+    2300180: Wall5
     3300000: Box460
     3300002: Box513
     3300004: Box514
@@ -369,6 +372,7 @@ ModelImporter:
     3300174: Wall4_SecondaryBricks
     3300176: BrickWalls005
     3300178: Wall3_SecondaryBricks001
+    3300180: Wall5
     4300000: RoofWindowSmall005
     4300002: RoofWindowLarge005
     4300004: Wall4_SecondaryBricks
@@ -459,6 +463,7 @@ ModelImporter:
     4300174: Cylinder004
     4300176: BrickWalls005
     4300178: Wall3_SecondaryBricks001
+    4300180: Wall5
     7400000: Take 001
     9500000: //RootNode
   materials:

@@ -22,8 +22,6 @@ public class PauseAudioScript : MonoBehaviour {
     public void changeVolume()
     {
         gameManager.Instance.changeGameVolume(volumeSlider.normalizedValue);
-        SettingsContainer sc = SettingsContainer.loadSettings(Application.dataPath + "\\Resources\\Settings.xml");
-        sc.gameSettings[0].volumeValue = (int)(gameManager.Instance.getGameVolume() * 10);
-        sc.saveSettings(Application.dataPath + "\\Resources\\Settings.xml");
+        GameObject.Find("DataManager").GetComponent<DataManager>().setVolume((int)(gameManager.Instance.getGameVolume() * 10));
     }
 }

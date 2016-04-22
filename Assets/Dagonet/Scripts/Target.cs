@@ -65,7 +65,7 @@ public class Target : MonoBehaviour
 
 	void OnMouseOver()
     {
-		if (!GameObject.Find("Button Manager").GetComponent<PauseButtonScript>().isPaused())
+		if (canCheckItems() && !GameObject.Find("Button Manager").GetComponent<PauseButtonScript>().isPaused() && !GameObject.Find("Tutorial Manager").GetComponent<Tutorial>().isTutorialUp())
         {
             overItem = true;
             if (GetComponent<SkinnedMeshRenderer>() != null)
@@ -103,7 +103,7 @@ public class Target : MonoBehaviour
 
     void OnMouseExit()
     {
-		if (!GameObject.Find("Button Manager").GetComponent<PauseButtonScript>().isPaused())
+        if (canCheckItems() && !GameObject.Find("Button Manager").GetComponent<PauseButtonScript>().isPaused() && !GameObject.Find("Tutorial Manager").GetComponent<Tutorial>().isTutorialUp())
         {
             overItem = false;
             if (GetComponent<SkinnedMeshRenderer>() != null)
@@ -185,8 +185,7 @@ public class Target : MonoBehaviour
 			thickness -= Time.deltaTime;
 		}
 
-        //if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
-		if (Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
+		if (canCheckItems() && Input.GetMouseButtonDown(0) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
         {
             if (inspectionEvent != null && !GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<Animator>().GetBool("shouldTalkMedium"))
             {
@@ -198,8 +197,7 @@ public class Target : MonoBehaviour
             }
         }
 
-        //if (Input.GetMouseButtonDown(1) && overItem && (((visorObject && visorManager.visorOn) || !visorObject) && ableToDoTheHighlighting()))
-		if (Input.GetMouseButtonDown(1) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
+		if (canCheckItems() && Input.GetMouseButtonDown(1) && overItem && (((visorObject && visorManager.visorOn) || !visorObject)))
         {
 			Debug.Log ("HI");
             RaycastHit hit;
@@ -287,12 +285,12 @@ public class Target : MonoBehaviour
             }
             case "Z+":
             {
-                newVector = transform.up;
+                newVector = transform.forward;
                 break;
             }
             case "Z-":
             {
-                newVector = transform.up * -1.0f;
+                newVector = transform.forward * -1.0f;
                 break;
             }
             default :
@@ -307,5 +305,41 @@ public class Target : MonoBehaviour
 	public void setInspectionEvent(InspectionEvent par1InspectionEvent)
 	{
 		inspectionEvent = par1InspectionEvent;
+	}
+
+	private bool canCheckItems()
+	{
+		bool able = true;
+
+		if(GameObject.Find ("TerminalCamera").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("Puzzle1PaperCamera").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("Puzzle2FixDetectiveCamera").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("Puzzle3Camera").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("CutsceneCameraDetective").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("CutsceneCameraGangster").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("CutsceneCameraLeader").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+
+		return able;
 	}
 }

@@ -53,8 +53,6 @@
      <Compile Include="Assets\Dagonet\Scenes\Main Menu\Scripts\CharacterShowreel.cs" />
      <Compile Include="Assets\Dagonet\Scenes\Main Menu\Scripts\MainMenuDisplay.cs" />
      <Compile Include="Assets\Dagonet\Scenes\Main Menu\Scripts\MainMenuSettingsManager.cs" />
-     <Compile Include="Assets\Dagonet\Scenes\Main Menu\Scripts\SettingsContainer.cs" />
-     <Compile Include="Assets\Dagonet\Scenes\Main Menu\Scripts\SettingsData.cs" />
      <Compile Include="Assets\Dagonet\Scenes\Main Menu\Scripts\audioScript.cs" />
      <Compile Include="Assets\Dagonet\Scenes\Main Menu\Scripts\buttonScript.cs" />
      <Compile Include="Assets\Dagonet\Scenes\Main Menu\Scripts\cursorChanger.cs" />
@@ -68,18 +66,21 @@
      <Compile Include="Assets\Dagonet\Scripts\Cutscene Events\ExternalCamera.cs" />
      <Compile Include="Assets\Dagonet\Scripts\FixVisorText.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\BallInspectionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\BatteryInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\Book1InspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\Book2InspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\CandleInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\CorridorDoorInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\CorridorOfficeDoorInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\CourtyardGangsterRoomDoorInspectionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\CourtyardGateTerminalInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\CourtyardOfficeDoorInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\DesktopInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\DetectiveBodyInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\DrawerArmInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\DrawerInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\EmergencyLightInspectionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\GangsterBatteryDrawInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\GangsterRoomCourtyardDoorInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\HatInspectionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\InspectionEvents\InspectionEvent.cs" />
@@ -93,6 +94,7 @@
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\CorridorInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\CorridorOfficeDoorInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\CourtyardGangsterRoomDoorInteractionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Interaction Events\CourtyardGateTerminalInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\CourtyardOfficeDoorInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\DetectiveBodyInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\DetectiveInteractionEvent.cs" />
@@ -100,6 +102,7 @@
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\GangsterInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\GangsterRoomCourtyardDoorInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\InteractionEvent.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Interaction Events\LeaderInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\OfficeCorridorDoorInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\OfficeCourtyardDoorInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\ParchmentBoardInteractionEvent.cs" />
@@ -107,6 +110,7 @@
      <Compile Include="Assets\Dagonet\Scripts\ItemInspection.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\CameraSwitchManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\CursorManager.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Managers\DataManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\DialogueManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\InventoryManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\PauseAudioScript.cs" />
@@ -114,6 +118,7 @@
      <Compile Include="Assets\Dagonet\Scripts\Managers\PauseSettingsManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\QuestTextManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\SubtitleManager.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Managers\Tutorial.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\VisorManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\MeshRecaluclateNormals.cs" />
      <Compile Include="Assets\Dagonet\Scripts\ModelReverseNormals.cs" />
@@ -124,9 +129,15 @@
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 1 Terminal\TerminalCodePaper.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 2 Fix Detective\FixSpot.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 2 Fix Detective\PlaceParts.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Puzzle 3 Open Gate\BatteryFixSpot.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Puzzle 3 Open Gate\Gate.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Puzzle 3 Open Gate\GateTerminal.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\SettingsXML\SettingsContainer.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\SettingsXML\SettingsData.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Singleton.cs" />
      <Compile Include="Assets\Dagonet\Scripts\State Behaviours\VisorDownEnd.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Target.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\TutorialButton.cs" />
      <Compile Include="Assets\Dagonet\Scripts\VisorDownStop.cs" />
      <Compile Include="Assets\Dagonet\Scripts\VisorObject.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
@@ -168,7 +179,6 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
-     <None Include="Assets\Resources\Settings.xml" />
      <None Include="Assets\Additional Assets\Fragmented Objects\Framented Objects Readme.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />

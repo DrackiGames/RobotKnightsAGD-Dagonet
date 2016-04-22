@@ -63,7 +63,7 @@ public class MoveAround : MonoBehaviour
 			}
 			else
 			{
-				playerAnimator.SetBool("lookAround", false);
+				playerAnimator.SetBool("lookAround", false); 
 			}
         }
 		
@@ -86,7 +86,7 @@ public class MoveAround : MonoBehaviour
             playerAnimator.SetBool("visorUp", true);
         }
 		
-        if (Input.GetMouseButtonDown(1) && !playerAnimator.GetBool("shouldTalkMedium") && !GameObject.Find("Button Manager").GetComponent<PauseButtonScript>().isPaused() && canMove())
+        if (canMove() && Input.GetMouseButtonDown(1) && !playerAnimator.GetBool("shouldTalkMedium"))
         {
             RaycastHit hit = new RaycastHit();
             Ray ray = GameObject.Find(CSM.currentCamera).GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
@@ -122,6 +122,53 @@ public class MoveAround : MonoBehaviour
 
 	private bool canMove()
 	{
-		return !visorCooldown && !GameObject.Find ("DialogueManager").GetComponent<DialogueManager>().choicesEnabled();
+		bool able = true;
+
+		if(visorCooldown)
+		{
+			return false;
+		}
+		if(GameObject.Find ("DialogueManager").GetComponent<DialogueManager>().choicesEnabled())
+		{
+			return false;
+		}
+		if(GameObject.Find ("Button Manager").GetComponent<PauseButtonScript>().isPaused())
+		{
+			return false;
+		}
+		if(GameObject.Find ("Tutorial Manager").GetComponent<Tutorial>().isTutorialUp())
+		{
+			return false;
+		}
+		if(GameObject.Find ("TerminalCamera").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("Puzzle1PaperCamera").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("Puzzle2FixDetectiveCamera").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("Puzzle3Camera").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("CutsceneCameraDetective").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("CutsceneCameraGangster").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+		if(GameObject.Find ("CutsceneCameraLeader").GetComponent<Camera>().enabled)
+		{
+			able = false;
+		}
+
+		return able;
 	}
 }

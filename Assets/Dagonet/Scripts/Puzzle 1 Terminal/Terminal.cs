@@ -30,6 +30,9 @@ public class Terminal : MonoBehaviour
     [SerializeField]
     private Text escapeText;
 
+	[SerializeField]
+	private QuestTextManager questTextManager;
+
 	void Start () 
     {
         codeCombination = "";
@@ -75,6 +78,9 @@ public class Terminal : MonoBehaviour
             {
                 light.color = Color.green;
             }
+
+			//questTextManager.popUpQuest("LEAVE THE TERMINAL AND CHECK THE CORRIDOR");
+			//StartCoroutine(quest());
         }
 
         if(inUse)
@@ -155,4 +161,11 @@ public class Terminal : MonoBehaviour
 
         CSM.isFadingIn = true;
     }
+
+	private IEnumerator quest()
+	{
+		yield return new WaitForSeconds(3.75f);
+		
+		questTextManager.fadeIn = false;
+	}
 }

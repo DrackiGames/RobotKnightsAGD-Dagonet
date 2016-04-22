@@ -427,45 +427,35 @@ public class buttonScript : MonoBehaviour
     {
         gameManager.Instance.changeQualitySettings((int)SettingsQualitySlider.GetComponent<Slider>().value);
         QualitySettings.SetQualityLevel((int)SettingsQualitySlider.GetComponent<Slider>().value);
-        SettingsContainer sc = SettingsContainer.loadSettings(Application.dataPath + "\\Resources\\Settings.xml");
+        GameObject.Find("DataManager").GetComponent<DataManager>().setQuality(QualitySettings.GetQualityLevel());
 
         switch (QualitySettings.GetQualityLevel())
         {
             case 0:
-                sc.gameSettings[0].qualityValue = 0;
                 SettingsQualityLabel2.GetComponent<Text>().text = "Fastest";
                 break;
             case 1:
-                sc.gameSettings[0].qualityValue = 1;
                 SettingsQualityLabel2.GetComponent<Text>().text = "Fast";
                 break;
             case 2:
-                sc.gameSettings[0].qualityValue = 2;
                 SettingsQualityLabel2.GetComponent<Text>().text = "Simple";
                 break;
             case 3:
-                sc.gameSettings[0].qualityValue = 3;
                 SettingsQualityLabel2.GetComponent<Text>().text = "Good";
                 break;
             case 4:
-                sc.gameSettings[0].qualityValue = 4;
                 SettingsQualityLabel2.GetComponent<Text>().text = "Beautiful";
                 break;
             case 5:
-                sc.gameSettings[0].qualityValue = 5;
                 SettingsQualityLabel2.GetComponent<Text>().text = "Fantastic";
                 break;
         }
-
-        sc.saveSettings(Application.dataPath + "\\Resources\\Settings.xml");
     }
 
     public void changeSubtitleState()
     {        
         gameManager.Instance.changeSubtitlesState();
-        SettingsContainer sc = SettingsContainer.loadSettings(Application.dataPath + "\\Resources\\Settings.xml");
-        sc.gameSettings[0].subtitlesEnabled = gameManager.Instance.getSubtitlesEnabled();
-        sc.saveSettings(Application.dataPath + "\\Resources\\Settings.xml");
+        GameObject.Find("DataManager").GetComponent<DataManager>().setSubtitles(gameManager.Instance.getSubtitlesEnabled());
     }
 
 	public EState getMenuState()

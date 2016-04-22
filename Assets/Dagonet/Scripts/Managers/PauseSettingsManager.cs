@@ -18,9 +18,10 @@ public class PauseSettingsManager : MonoBehaviour
 	void Start () 
     {
         //Make the sliders and checkbox correct first
-        volumeSlider.normalizedValue = gameManager.Instance.getGameVolume();
-        qualitySlider.value = gameManager.Instance.getQualitySettings();
-        subtitlesCheckbox.isOn = gameManager.Instance.getSubtitlesEnabled();
+		Debug.Log (GameObject.Find ("DataManager").GetComponent<DataManager> ().getVolume ());
+		volumeSlider.value = GameObject.Find("DataManager").GetComponent<DataManager>().getVolume();
+		qualitySlider.value = GameObject.Find("DataManager").GetComponent<DataManager>().getQuality();
+		subtitlesCheckbox.isOn = GameObject.Find("DataManager").GetComponent<DataManager>().getSubtitles();
 
         buttonManager.changeQualitySettings();
         audioManager.changeVolume();

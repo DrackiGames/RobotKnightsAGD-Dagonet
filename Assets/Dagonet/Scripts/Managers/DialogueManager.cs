@@ -8,6 +8,11 @@ public class DialogueManager : MonoBehaviour
 	private DetectiveInteractionEvent detectiveEvent;
 	[SerializeField]
 	private GangsterInteractionEvent gangsterEvent;
+	[SerializeField]
+	private LeaderInteractionEvent leaderEvent;
+	public bool detectiveCompleted;
+	public bool gangsterCompleted;
+	public bool leaderCompleted;
 
 	[SerializeField]
 	private ChoiceButton[] choiceButtons;
@@ -15,6 +20,10 @@ public class DialogueManager : MonoBehaviour
 	private SubtitleManager subtitleManager;
 	[SerializeField]
 	private CameraSwitchManager CSM;
+	[SerializeField]
+	private InventoryManager inventoryManager;
+	[SerializeField]
+	private QuestTextManager questTextManager;
 
 	[SerializeField]
 	private int choiceCurrentID;
@@ -43,6 +52,16 @@ public class DialogueManager : MonoBehaviour
 	private AudioClip[] gangsterChoice2Clips;
 	[SerializeField]
 	private string[] gangsterChoice2Subtitles;
+
+	[SerializeField]
+	private AudioClip[] leaderChoice1Clips;
+	[SerializeField]
+	private string[] leaderChoice1Subtitles;
+
+	[SerializeField]
+	private AudioClip[] leaderChoice2Clips;
+	[SerializeField]
+	private string[] leaderChoice2Subtitles;
 	
 	void Start () 
 	{
@@ -184,6 +203,8 @@ public class DialogueManager : MonoBehaviour
 				
 				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
 				GameObject.Find ("CutsceneCameraDetective").GetComponent<Camera> ().enabled = false;
+
+				detectiveCompleted = true;
 			}
 			if(choiceSelected == 2)
 			{
@@ -201,6 +222,8 @@ public class DialogueManager : MonoBehaviour
 				
 				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
 				GameObject.Find ("CutsceneCameraDetective").GetComponent<Camera> ().enabled = false;
+
+				detectiveCompleted = true;
 			}
 			if(choiceSelected == 3)
 			{
@@ -218,6 +241,8 @@ public class DialogueManager : MonoBehaviour
 				
 				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
 				GameObject.Find ("CutsceneCameraDetective").GetComponent<Camera> ().enabled = false;
+
+				detectiveCompleted = true;
 			}
 			if(choiceSelected == 4)
 			{
@@ -235,6 +260,8 @@ public class DialogueManager : MonoBehaviour
 				
 				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
 				GameObject.Find ("CutsceneCameraDetective").GetComponent<Camera> ().enabled = false;
+
+				detectiveCompleted = true;
 			}
 		}
 		if(choiceCurrentID == 2)
@@ -304,6 +331,8 @@ public class DialogueManager : MonoBehaviour
 
 				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
 				GameObject.Find ("CutsceneCameraGangster").GetComponent<Camera> ().enabled = false;
+
+				gangsterCompleted = true;
 			}
 			if(choiceSelected == 2)
 			{
@@ -313,6 +342,10 @@ public class DialogueManager : MonoBehaviour
 
 				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
 				GameObject.Find ("CutsceneCameraGangster").GetComponent<Camera> ().enabled = false;
+
+				inventoryManager.addToInventory("batteryItem1");
+
+				gangsterCompleted = true;
 			}
 			if(choiceSelected == 3)
 			{
@@ -322,6 +355,8 @@ public class DialogueManager : MonoBehaviour
 
 				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
 				GameObject.Find ("CutsceneCameraGangster").GetComponent<Camera> ().enabled = false;
+
+				gangsterCompleted = true;
 			}
 			if(choiceSelected == 4)
 			{
@@ -331,6 +366,194 @@ public class DialogueManager : MonoBehaviour
 
 				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
 				GameObject.Find ("CutsceneCameraGangster").GetComponent<Camera> ().enabled = false;
+
+				inventoryManager.addToInventory("batteryItem1");
+
+				gangsterCompleted = true;
+			}
+		}
+		if(choiceCurrentID == 4)
+		{
+			if(choiceSelected == 1)
+			{
+				leaderEvent.speak (leaderChoice1Clips [0], leaderChoice1Subtitles [0]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [0].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [1], leaderChoice1Subtitles [1]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [1].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [2], leaderChoice1Subtitles [2]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [2].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [3], leaderChoice1Subtitles [3]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [3].length + 0.3f);
+
+				leaderEvent.speak (leaderChoice1Clips [7], leaderChoice1Subtitles [7]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [7].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [8], leaderChoice1Subtitles [8]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [8].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [9], leaderChoice1Subtitles [9]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [9].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [10], leaderChoice1Subtitles [10]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [10].length + 0.3f);
+				
+				choiceSelected = -1;
+				
+				//Choice starts here
+				choiceFourSetup ("A time clash of \nnew and old", "A weird new \norganisation", "A Gangster symbol", "Some boring rubbish");
+				
+				setCurrentChoiceID (5);
+			}
+			if(choiceSelected == 2)
+			{
+				leaderEvent.speak (leaderChoice1Clips [4], leaderChoice1Subtitles [4]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [4].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [5], leaderChoice1Subtitles [5]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [5].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [6], leaderChoice1Subtitles [6]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [6].length + 0.3f);
+
+				leaderEvent.speak (leaderChoice1Clips [7], leaderChoice1Subtitles [7]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [7].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [8], leaderChoice1Subtitles [8]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [8].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [9], leaderChoice1Subtitles [9]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [9].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice1Clips [10], leaderChoice1Subtitles [10]);
+				
+				yield return new WaitForSeconds (leaderChoice1Clips [10].length + 0.3f);
+
+				choiceSelected = -1;
+				
+				//Choice starts here
+				choiceFourSetup ("A time clash of \nnew and old", "A weird new \norganisation", "A Gangster symbol", "Some boring rubbish");
+				
+				setCurrentChoiceID (5);
+			}
+		}
+		if(choiceCurrentID == 5)
+		{
+			if(choiceSelected == 1)
+			{
+				leaderEvent.speak (leaderChoice2Clips [0], leaderChoice2Subtitles [0]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [0].length + 0.3f);
+
+				leaderEvent.speak (leaderChoice2Clips [4], leaderChoice2Subtitles [4]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [4].length + 0.3f);
+
+				leaderEvent.speak (leaderChoice2Clips [5], leaderChoice2Subtitles [5]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [5].length + 0.3f);
+
+				leaderEvent.speak (leaderChoice2Clips [6], leaderChoice2Subtitles [6]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [6].length + 0.3f);
+
+				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
+				GameObject.Find ("CutsceneCameraLeader").GetComponent<Camera> ().enabled = false;
+				
+				inventoryManager.addToInventory("batteryItem2");
+				
+				leaderCompleted = true;
+			}
+			if(choiceSelected == 2)
+			{
+				leaderEvent.speak (leaderChoice2Clips [1], leaderChoice2Subtitles [1]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [1].length + 0.3f);
+
+				leaderEvent.speak (leaderChoice2Clips [4], leaderChoice2Subtitles [4]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [4].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice2Clips [5], leaderChoice2Subtitles [5]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [5].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice2Clips [6], leaderChoice2Subtitles [6]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [6].length + 0.3f);
+
+				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
+				GameObject.Find ("CutsceneCameraLeader").GetComponent<Camera> ().enabled = false;
+				
+				inventoryManager.addToInventory("batteryItem2");
+				
+				leaderCompleted = true;
+			}
+			if(choiceSelected == 3)
+			{
+				leaderEvent.speak (leaderChoice2Clips [2], leaderChoice2Subtitles [2]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [2].length + 0.3f);
+
+				leaderEvent.speak (leaderChoice2Clips [4], leaderChoice2Subtitles [4]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [4].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice2Clips [5], leaderChoice2Subtitles [5]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [5].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice2Clips [6], leaderChoice2Subtitles [6]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [6].length + 0.3f);
+
+				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
+				GameObject.Find ("CutsceneCameraLeader").GetComponent<Camera> ().enabled = false;
+				
+				inventoryManager.addToInventory("batteryItem2");
+				
+				leaderCompleted = true;
+			}
+			if(choiceSelected == 4)
+			{
+				leaderEvent.speak (leaderChoice2Clips [3], leaderChoice2Subtitles [3]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [3].length + 0.3f);
+
+				leaderEvent.speak (leaderChoice2Clips [4], leaderChoice2Subtitles [4]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [4].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice2Clips [5], leaderChoice2Subtitles [5]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [5].length + 0.3f);
+				
+				leaderEvent.speak (leaderChoice2Clips [6], leaderChoice2Subtitles [6]);
+				
+				yield return new WaitForSeconds (leaderChoice2Clips [6].length + 0.3f);
+
+				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
+				GameObject.Find ("CutsceneCameraLeader").GetComponent<Camera> ().enabled = false;
+				
+				inventoryManager.addToInventory("batteryItem2");
+				
+				leaderCompleted = true;
 			}
 		}
 

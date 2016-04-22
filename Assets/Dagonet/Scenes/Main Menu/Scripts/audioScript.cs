@@ -163,8 +163,7 @@ public class audioScript : MonoBehaviour {
 
         gameManager.Instance.changeGameVolume(volumeSlider.normalizedValue);
 
-        SettingsContainer sc = SettingsContainer.loadSettings(Application.dataPath + "\\Resources\\Settings.xml");
-        sc.gameSettings[0].volumeValue = (int)volumeSlider.value;
-        sc.saveSettings(Application.dataPath + "\\Resources\\Settings.xml");
+        Debug.LogError("Changing volume to " + (int)volumeSlider.value);
+        GameObject.Find("DataManager").GetComponent<DataManager>().setVolume((int)volumeSlider.value);
     }
 }
