@@ -17,9 +17,6 @@ public class Terminal : MonoBehaviour
 
     public string previousCamera;
 
-    public MeshCollider terminal;
-    public Target target;
-
     public TerminalCodePaper codePaper;
 	public PlaceParts puzzle2;
 
@@ -27,11 +24,9 @@ public class Terminal : MonoBehaviour
 	public Light[] doorLights;
 	public Material greenMaterial;
 
-    [SerializeField]
-    private Text escapeText;
-
 	[SerializeField]
 	private QuestTextManager questTextManager;
+	private bool crackFinished;
 
 	void Start () 
     {
@@ -42,10 +37,13 @@ public class Terminal : MonoBehaviour
             codeCombination += r.ToString();
         }
 
+		Debug.Log ("Terminal code combination: " + codeCombination);
+
         codePaper.setupTerminalParchment(codeCombination);
 
         cracked = false;
         inUse = false;
+		crackFinished = false;
 	}
 	
 	void Update () 
@@ -53,9 +51,7 @@ public class Terminal : MonoBehaviour
         if(!cracked)
         {
             if (inputCode.Length == 3 && !isCodeCorrect(inputCode))
-            {
-                //inputCode = "";
-                //acceptedOrRejected.GetComponent<SpriteRenderer>().sprite = rejected;
+			{
                 StartCoroutine(reject());
             }
             if (inputCode.Length == 3 && isCodeCorrect(inputCode))
@@ -79,41 +75,16 @@ public class Terminal : MonoBehaviour
                 light.color = Color.green;
             }
 
-			//questTextManager.popUpQuest("LEAVE THE TERMINAL AND CHECK THE CORRIDOR");
-			//StartCoroutine(quest());
+			if(!crackFinished)
+			{
+				crackFinished = true;
+				questTextManager.popUpQuest("SUCCESS! CHECK OUTSIDE THE TERMINAL ROOM!");
+			}
         }
 
         if(inUse)
         {
-            if (terminal.enabled)
-            {
-                terminal.enabled = false;
-            }
-            target.resetItemTextCursorAndHint();
-            if(Input.GetKeyDown(KeyCode.Q))
-            {
-                StartCoroutine(exitTerminal());
-            }
-
-            if(!codePaper.inUse && !puzzle2.inUse)
-            {
-                escapeText.enabled = true;
-                escapeText.GetComponent<Outline>().enabled = true;
-            }
-            
-        }
-        else
-        {
-            if(!terminal.enabled)
-            {
-                terminal.enabled = true;
-            }
-
-			if (!codePaper.inUse && !puzzle2.inUse)
-            {
-                escapeText.enabled = false;
-                escapeText.GetComponent<Outline>().enabled = false;
-            }
+            GetComponentInParent<Target>().resetItemTextCursorAndHint();
         }
 	}
 
@@ -139,27 +110,6 @@ public class Terminal : MonoBehaviour
         {
             return false;
         }
-    }
-
-    private IEnumerator exitTerminal()
-    {
-		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
-
-        CameraSwitchManager CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
-        CSM.isFadingIn = false;
-
-        yield return new WaitForSeconds(0.3f);
-
-        GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
-        GameObject.Find("TerminalCamera").GetComponent<Camera>().enabled = false;
-
-		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
-
-        inUse = false;
-
-        yield return new WaitForSeconds(0.3f);
-
-        CSM.isFadingIn = true;
     }
 
 	private IEnumerator quest()

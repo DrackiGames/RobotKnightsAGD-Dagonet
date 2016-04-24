@@ -9,6 +9,11 @@ public class DoorInteractionEvent : InteractionEvent
     public string sceneCamera1;
     public string sceneCamera2;
 
+	[SerializeField]
+	private QuestTextManager questTextManager;
+	[SerializeField]
+	private DamageFloor floor;
+
     public override IEnumerator interactionEvents()
     {
         if(entryLight.color == Color.green)
@@ -33,6 +38,13 @@ public class DoorInteractionEvent : InteractionEvent
 
             CSM.isFadingIn = true;
 			GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
+
+			yield return new WaitForSeconds(2.0f);
+
+			if(!floor.fallFinished)
+			{
+				questTextManager.popUpQuest("INVESTIGATE THE CORRIDOR");
+			}
         }
     }
 }

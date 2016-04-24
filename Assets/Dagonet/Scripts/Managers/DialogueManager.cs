@@ -291,7 +291,7 @@ public class DialogueManager : MonoBehaviour
 				choiceSelected = -1;
 				
 				//Choice starts here
-				choiceFourSetup ("I need the battery for treasure \nbehind the gate", "Give the battery for unique \nrobot parts behind the gate", "[AGRESSIVELY ARGUE]", "I will help you slay the leader");
+				choiceFourSetup ("I need the battery for treasure \nbehind the gate", "Give the battery for unique \nrobot parts behind the gate", "[AGGRESSIVELY ARGUE]", "I will help you slay the leader");
 				
 				setCurrentChoiceID (3);
 			}

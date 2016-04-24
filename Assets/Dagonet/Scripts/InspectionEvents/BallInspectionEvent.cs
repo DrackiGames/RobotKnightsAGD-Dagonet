@@ -28,6 +28,8 @@ public class BallInspectionEvent : InspectionEvent
 			puzzle2.getInventoryManager().addToInventory("detectiveItem3");
 			//Add to puzzle 2 completion
 			puzzle2.addToCompletion();
+			//Refresh the target
+			puzzle2.getPiece("Ball").GetComponent<Target>().resetItemTextCursorAndHint();
 			//Delete object
 			Destroy(puzzle2.getPiece("Ball").gameObject);
 		}

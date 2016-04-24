@@ -6,7 +6,7 @@ public class GangsterInteractionEvent : InteractionEvent
 	public AudioClip[] introLines;
 	public string[] introSubtitles;
 	public DialogueManager dialogueManager;
-	public Transform gangsterTalkSpot;
+	public Transform warpSpot;
 
 	public override IEnumerator interactionEvents()
 	{
@@ -16,6 +16,10 @@ public class GangsterInteractionEvent : InteractionEvent
 			{	
 				GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = false;
 				GameObject.Find ("CutsceneCameraGangster").GetComponent<Camera> ().enabled = true;
+
+				playerAnimator.GetComponent<NavMeshAgent>().Stop();
+				playerAnimator.GetComponent<NavMeshAgent>().Warp(warpSpot.position);
+				playerAnimator.transform.LookAt(GameObject.Find ("GangsterCharacter2").transform.position);
 				
 				speak (introLines[0], introSubtitles[0]);
 				
@@ -37,6 +41,7 @@ public class GangsterInteractionEvent : InteractionEvent
 	
 	public void speak(AudioClip par1Clip, string par2Subtitle)
 	{
+		GameObject.Find ("CharacterAnimationManager").GetComponent<CharacterAnimationManager> ().makeGangsterTalk ();
 		GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().PlayOneShot(par1Clip);
 		subtitleManager.updateSubtitles(par2Subtitle, "Gangster");
 		StartCoroutine(waitAndResetSubtitles(par1Clip.length));

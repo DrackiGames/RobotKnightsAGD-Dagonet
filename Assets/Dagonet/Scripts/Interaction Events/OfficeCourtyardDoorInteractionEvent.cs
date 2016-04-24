@@ -9,6 +9,14 @@ public class OfficeCourtyardDoorInteractionEvent : InteractionEvent
 	public string sceneCamera2;
 
 	public DialogueManager dialogueManager;
+	public QuestTextManager questTextManager;
+
+	public bool hintInvestigateArea;
+
+	void Start()
+	{
+		hintInvestigateArea = false;
+	}
 	
 	public override IEnumerator interactionEvents()
 	{
@@ -34,6 +42,14 @@ public class OfficeCourtyardDoorInteractionEvent : InteractionEvent
 			
 			CSM.isFadingIn = true;
 			GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
+
+			yield return new WaitForSeconds(2.0f);
+
+			if(!hintInvestigateArea)
+			{
+				hintInvestigateArea = true;
+				questTextManager.popUpQuest("INVESTIGATE THE AREA BEFORE TALKING TO OTHER CHARACTERS");
+			}
 		}
 	}
 }

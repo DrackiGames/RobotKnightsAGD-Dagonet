@@ -4,14 +4,14 @@ using System.Collections;
 public class InteractionEvent : MonoBehaviour 
 {
     protected CameraSwitchManager CSM;
-    protected AudioSource atPlayer;
     protected SubtitleManager subtitleManager;
+	protected Animator playerAnimator;
 
     void Start()
     {
         CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
-		atPlayer = GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<AudioSource>();
         subtitleManager = GameObject.FindGameObjectWithTag("SubtitleManager").GetComponent<SubtitleManager>();
+		playerAnimator = GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<Animator>();
     }
 
     public virtual IEnumerator interactionEvents()

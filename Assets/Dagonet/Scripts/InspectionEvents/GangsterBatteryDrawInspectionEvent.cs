@@ -11,8 +11,11 @@ public class GangsterBatteryDrawInspectionEvent : InspectionEvent
 	private DialogueManager dialogueManager;
 	[SerializeField]
 	private InventoryManager inventoryManager;
+	[SerializeField]
+	private QuestTextManager questTextManager;
+
 	private bool batteryTaken = false;
-	
+
 	public override IEnumerator inspectionEvents()
 	{
 		if(!batteryTaken && dialogueManager.gangsterCompleted && !inventoryManager.hasGotItem("battery1"))
@@ -32,5 +35,12 @@ public class GangsterBatteryDrawInspectionEvent : InspectionEvent
 		}
 		
 		yield return new WaitForSeconds(0.0f);
+	}
+
+	private IEnumerator batteryHintProcess()
+	{
+		yield return new WaitForSeconds (2.0f);
+
+		questTextManager.popUpQuest ("YOU FOUND THE GANGSTER'S HIDDEN BATTERY!");
 	}
 }

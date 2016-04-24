@@ -28,6 +28,8 @@ public class HatInspectionEvent : InspectionEvent
 			puzzle2.getInventoryManager().addToInventory("detectiveItem2");
 			//Add to puzzle 2 completion
 			puzzle2.addToCompletion();
+			//Refresh the target
+			puzzle2.getPiece("Hat").GetComponent<Target>().resetItemTextCursorAndHint();
 			//Delete object
 			Destroy(puzzle2.getPiece("Hat").gameObject);
 		}

@@ -17,9 +17,8 @@ public class CharacterShowreel : MonoBehaviour {
 	void Update () 
 	{
 		counter += Time.deltaTime * 4;
-		Debug.Log (counter);
 		
-		if(counter >= 20)
+		if(counter >= 25)
 		{
 			counter = 0;
 			setNewCharacter();
@@ -106,7 +105,7 @@ public class CharacterShowreel : MonoBehaviour {
 
 	private IEnumerator enableCharactersProcess()
 	{
-		yield return new WaitForSeconds (1.0f);
+		yield return new WaitForSeconds (1.5f);
 
 		enableCharacters ();
 	}

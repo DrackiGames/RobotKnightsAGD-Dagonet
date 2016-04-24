@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ParchmentBoardInteractionEvent : InteractionEvent 
 {
     public TerminalCodePaper codePaper;
+	public Terminal mainTerminal;
 
     [SerializeField]
     private AudioClip[] interactionLines;
     [SerializeField]
     private string[] linesForSubtitles;
+	[SerializeField]
+	private QuestTextManager questTextManager;
 
     public override IEnumerator interactionEvents()
     {
@@ -25,10 +29,18 @@ public class ParchmentBoardInteractionEvent : InteractionEvent
 
         yield return new WaitForSeconds(0.3f);
 
+		GameObject.Find ("EscapeText").GetComponent<Text>().enabled = true;
+		GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = true;
+
         CSM.isFadingIn = true;
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 
         yield return new WaitForSeconds(0.5f);
+
+		if(!mainTerminal.cracked)
+		{
+			questTextManager.popUpQuest ("FIGURE OUT THE CODE FROM THE NUMBERS");
+		}
 
         if (!GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().isPlaying)
         {
@@ -40,8 +52,9 @@ public class ParchmentBoardInteractionEvent : InteractionEvent
 
     void Update()
     {
-        if (codePaper.inUse && Input.GetKeyDown(KeyCode.Q))
+        if (codePaper.inUse && Input.GetKeyDown(KeyCode.Q) && !CSM.qCooldown)
         {
+			StartCoroutine(CSM.qCoolDownProcess());
             StartCoroutine(exitCodePaper());
         }
     }
@@ -50,7 +63,6 @@ public class ParchmentBoardInteractionEvent : InteractionEvent
     {
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 
-        CameraSwitchManager CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
         CSM.isFadingIn = false;
 
         yield return new WaitForSeconds(0.3f);
@@ -63,6 +75,9 @@ public class ParchmentBoardInteractionEvent : InteractionEvent
         codePaper.inUse = false;
 
         yield return new WaitForSeconds(0.3f);
+
+		GameObject.Find ("EscapeText").GetComponent<Text>().enabled = false;
+		GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = false;
 
         CSM.isFadingIn = true;
     }

@@ -31,7 +31,6 @@ public class DamageFloor : MonoBehaviour
     {
         if(fallen && !fallFinished)
         {
-            Debug.Log("FALL");
             player.transform.Translate(new Vector3(0, -3 * Time.deltaTime, 0));
         }
     }
@@ -85,7 +84,7 @@ public class DamageFloor : MonoBehaviour
 
 		yield return new WaitForSeconds(0.3f);
 
-		//questTextManager.popUpQuest ("INSPECT AND INTERACT WITH THE BROKEN DETECTIVE");
+		questTextManager.popUpQuest ("INVESTIGATE THE WEIRD OFFICE");
     }
     
 }

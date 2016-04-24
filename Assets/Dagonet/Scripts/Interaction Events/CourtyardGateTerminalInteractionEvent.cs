@@ -10,9 +10,15 @@ public class CourtyardGateTerminalInteractionEvent : InteractionEvent
 	private string[] linesForSubtitles;
 	[SerializeField]
 	private InventoryManager inventoryManager;
+	[SerializeField]
+	private GateTerminal gateTerminal;
 	
 	public override IEnumerator interactionEvents()
 	{
+		if(!gateTerminal.foundGateTerminal)
+		{
+			gateTerminal.foundGateTerminal = true;
+		}
 
 		yield return new WaitForSeconds(0.3f);
 		
@@ -22,16 +28,18 @@ public class CourtyardGateTerminalInteractionEvent : InteractionEvent
 		
 		GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = false;
 		GameObject.Find("Puzzle3Camera").GetComponent<Camera>().enabled = true;
+
+		gateTerminal.inUse = true;
 		
 		yield return new WaitForSeconds(0.3f);
+
+		GameObject.Find ("EscapeText").GetComponent<Text>().enabled = true;
+		GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = true;
 		
 		CSM.isFadingIn = true;
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 		
 		yield return new WaitForSeconds(0.5f);
-
-		GameObject.Find ("EscapeText").GetComponent<Text>().enabled = true;
-		GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = true;
 		
 		if (!GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().isPlaying)
 		{
@@ -52,20 +60,17 @@ public class CourtyardGateTerminalInteractionEvent : InteractionEvent
 
 	void Update()
 	{
-		if (GameObject.Find("Puzzle3Camera") && Input.GetKeyDown(KeyCode.Q))
+		if (GameObject.Find("Puzzle3Camera").GetComponent<Camera>().enabled && Input.GetKeyDown(KeyCode.Q) && !CSM.qCooldown)
 		{
+			StartCoroutine(CSM.qCoolDownProcess());
 			StartCoroutine(exitPuzzle3());
 		}
 	}
 	
 	private IEnumerator exitPuzzle3()
 	{
-		GameObject.Find ("EscapeText").GetComponent<Text>().enabled = false;
-		GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = false;
-
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
-		
-		CameraSwitchManager CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
+
 		CSM.isFadingIn = false;
 		
 		yield return new WaitForSeconds(0.3f);
@@ -74,8 +79,13 @@ public class CourtyardGateTerminalInteractionEvent : InteractionEvent
 		GameObject.Find("Puzzle3Camera").GetComponent<Camera>().enabled = false;
 		
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
+
+		gateTerminal.inUse = false;
 		
 		yield return new WaitForSeconds(0.3f);
+
+		GameObject.Find ("EscapeText").GetComponent<Text>().enabled = false;
+		GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = false;
 		
 		CSM.isFadingIn = true;
 	}

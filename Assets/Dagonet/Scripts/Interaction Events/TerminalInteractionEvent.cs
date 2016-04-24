@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class TerminalInteractionEvent : InteractionEvent 
@@ -24,6 +25,9 @@ public class TerminalInteractionEvent : InteractionEvent
 
         yield return new WaitForSeconds(0.3f);
 
+		GameObject.Find ("EscapeText").GetComponent<Text>().enabled = true;
+		GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = true;
+
         CSM.isFadingIn = true;
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 
@@ -36,4 +40,38 @@ public class TerminalInteractionEvent : InteractionEvent
             StartCoroutine(waitAndResetSubtitles(interactionLines[0].length));
         }
     }
+
+	void Update()
+	{
+		if (mainTerminal.inUse && Input.GetKeyDown(KeyCode.Q) && !CSM.qCooldown)
+		{
+			StartCoroutine(CSM.qCoolDownProcess());
+			StartCoroutine(exitTerminal());
+		}
+	}
+
+	private IEnumerator exitTerminal()
+	{
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
+	
+		CSM.isFadingIn = false;
+		
+		yield return new WaitForSeconds(0.3f);
+		
+		GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = true;
+		GameObject.Find("TerminalCamera").GetComponent<Camera>().enabled = false;
+
+		Debug.Log ("Terminal Camera disabled");
+
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
+		
+		mainTerminal.inUse = false;
+
+		yield return new WaitForSeconds(0.3f);
+
+		GameObject.Find ("EscapeText").GetComponent<Text>().enabled = false;
+		GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = false;
+		
+		CSM.isFadingIn = true;
+	}
 }

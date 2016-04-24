@@ -28,6 +28,8 @@ public class DrawerArmInspectionEvent : InspectionEvent
 			puzzle2.getInventoryManager().addToInventory("detectiveItem4");
 			//Add to puzzle 2 completion
 			puzzle2.addToCompletion();
+			//Refresh the target
+			puzzle2.getPiece("Arm").GetComponent<Target>().resetItemTextCursorAndHint();
 			//Delete arm
 			Destroy(puzzle2.getPiece("Arm").gameObject);
 		}

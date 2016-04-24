@@ -32,33 +32,10 @@ public class audioScript : MonoBehaviour {
         high
     }
 
-	// Use this for initialization
 	void Start () 
     {
-        //if(gameManager.Instance.getGameVolume() == 0)
-        //{
-        //    volumeState = EVolumeState.mute;
-        //}
-        //else if (gameManager.Instance.getGameVolume() > 0 && gameManager.Instance.getGameVolume() <= 0.3)
-        //{
-        //    volumeState = EVolumeState.low;
-        //}
-        //else if (gameManager.Instance.getGameVolume() > 0.3 && gameManager.Instance.getGameVolume() <= 0.6)
-        //{
-        //    volumeState.m
-        //}
-        //else
-        //{
 
-        //}
-        
-	    //volumeToggleImage.GetComponent<Image>().sprite = volumeMediumSprite;
 	}
-
-    void Update()
-    {
-        Debug.Log("VALUE: " + volumeSlider.value + ", N VALUE: " + volumeSlider.normalizedValue);
-    }
 
     public void setVolumeState()
     {
@@ -162,8 +139,7 @@ public class audioScript : MonoBehaviour {
         }
 
         gameManager.Instance.changeGameVolume(volumeSlider.normalizedValue);
-
-        Debug.LogError("Changing volume to " + (int)volumeSlider.value);
+	
         GameObject.Find("DataManager").GetComponent<DataManager>().setVolume((int)volumeSlider.value);
     }
 }

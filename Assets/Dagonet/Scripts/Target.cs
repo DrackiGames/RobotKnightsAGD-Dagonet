@@ -30,6 +30,8 @@ public class Target : MonoBehaviour
     public float distanceFactor;
     //
 
+	public bool shouldNotMoveWhenInteracted;
+
 	float otherComponents = 1.0f;
 	float thickness = 1.0f;
 	bool flip = false;
@@ -206,7 +208,7 @@ public class Target : MonoBehaviour
 				Debug.Log(hit.transform.name);
                 if (hit.transform.tag == "Ground")
                 {
-					if (Vector3.Distance(GameObject.FindGameObjectWithTag("MainCharacter").transform.position, hit.transform.position) > 0.3f)
+					if (!shouldNotMoveWhenInteracted && Vector3.Distance(GameObject.FindGameObjectWithTag("MainCharacter").transform.position, hit.transform.position) > 0.3f)
                     {
                         GameObject.Find(GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>().currentCamera).GetComponent<MoveAround>().shouldWalk = true;
 						Debug.Log ("CHECK");

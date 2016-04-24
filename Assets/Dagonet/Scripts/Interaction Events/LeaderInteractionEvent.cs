@@ -6,6 +6,7 @@ public class LeaderInteractionEvent : InteractionEvent
 	public AudioClip[] introLines;
 	public string[] introSubtitles;
 	public DialogueManager dialogueManager;
+	public Transform warpSpot;
 	
 	public override IEnumerator interactionEvents()
 	{
@@ -13,6 +14,9 @@ public class LeaderInteractionEvent : InteractionEvent
 		{
 			GameObject.Find(CSM.currentCamera).GetComponent<Camera>().enabled = false;
 			GameObject.Find ("CutsceneCameraLeader").GetComponent<Camera> ().enabled = true;
+
+			playerAnimator.GetComponent<NavMeshAgent>().Warp(warpSpot.position);
+			playerAnimator.transform.LookAt(GameObject.Find ("LeaderCharacter").transform.position);
 			
 			speak (introLines[0], introSubtitles[0]);
 			
@@ -51,6 +55,7 @@ public class LeaderInteractionEvent : InteractionEvent
 	
 	public void speak(AudioClip par1Clip, string par2Subtitle)
 	{
+		GameObject.Find ("CharacterAnimationManager").GetComponent<CharacterAnimationManager> ().makeLeaderTalk ();
 		GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().PlayOneShot(par1Clip);
 		subtitleManager.updateSubtitles(par2Subtitle, "Leader");
 		StartCoroutine(waitAndResetSubtitles(par1Clip.length));

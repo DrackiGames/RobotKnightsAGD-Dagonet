@@ -18,14 +18,27 @@ public class FixSpot : MonoBehaviour
 	[SerializeField]
 	private Camera puzzle2Camera;
 
+	[SerializeField]
+	private Transform spine;
+
 	void OnMouseOver()
 	{
 		if(Input.GetMouseButtonDown(1) && inventoryManager.hasGotItem("detectiveItem" + spotID))
 		{
-			visorPiece.gameObject.SetActive(false);
-			realPiece.gameObject.SetActive(true);
-			inventoryManager.removeFromInventory("detectiveItem" + spotID);
-			Destroy(gameObject);
+			if(spotID == 1 && spine.gameObject.activeSelf)
+			{
+				visorPiece.gameObject.SetActive(false);
+				realPiece.gameObject.SetActive(true);
+				inventoryManager.removeFromInventory("detectiveItem" + spotID);
+				Destroy(gameObject);
+			}
+			if(spotID > 1)
+			{
+				visorPiece.gameObject.SetActive(false);
+				realPiece.gameObject.SetActive(true);
+				inventoryManager.removeFromInventory("detectiveItem" + spotID);
+				Destroy(gameObject);
+			}
 		}
 	}
 

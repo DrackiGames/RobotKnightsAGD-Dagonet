@@ -109,6 +109,8 @@
      <Compile Include="Assets\Dagonet\Scripts\Interaction Events\TerminalInteractionEvent.cs" />
      <Compile Include="Assets\Dagonet\Scripts\ItemInspection.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\CameraSwitchManager.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Managers\CharacterAnimationManager.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Managers\CreditsSystemManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\CursorManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\DataManager.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Managers\DialogueManager.cs" />
@@ -130,6 +132,7 @@
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 2 Fix Detective\FixSpot.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 2 Fix Detective\PlaceParts.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 3 Open Gate\BatteryFixSpot.cs" />
+     <Compile Include="Assets\Dagonet\Scripts\Puzzle 3 Open Gate\EndGame.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 3 Open Gate\Gate.cs" />
      <Compile Include="Assets\Dagonet\Scripts\Puzzle 3 Open Gate\GateTerminal.cs" />
      <Compile Include="Assets\Dagonet\Scripts\SettingsXML\SettingsContainer.cs" />

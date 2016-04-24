@@ -16,9 +16,12 @@ public class CameraSwitchManager : MonoBehaviour
 
 	private bool switchForCameras;
 
+	public bool qCooldown;
+
 	void Start () 
     {
 		switchForCameras = false;
+		qCooldown = false;
 	}
 
     void Update()
@@ -60,4 +63,13 @@ public class CameraSwitchManager : MonoBehaviour
             currentCamera = par2Camera2Name;
         }
     }
+
+	public IEnumerator qCoolDownProcess()
+	{
+		qCooldown = true;
+
+		yield return new WaitForSeconds(1.5f);
+
+		qCooldown = false;
+	}
 }

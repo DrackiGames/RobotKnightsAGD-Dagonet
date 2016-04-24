@@ -27,7 +27,7 @@ public class DetectiveInteractionEvent : InteractionEvent
 			yield return new WaitForSeconds(introLines[2].length + 0.3f);
 
 			//Choice starts here
-			dialogueManager.choiceTwoSetup ("I was hooked up to a terminal", "[LIE] I have never been here \nbefore");
+			dialogueManager.choiceTwoSetup ("I was hooked up to a terminal", "[LIE] I have never been here, \njust a passerby");
 
 			dialogueManager.setCurrentChoiceID(0);
 			
@@ -39,6 +39,7 @@ public class DetectiveInteractionEvent : InteractionEvent
 
 	public void speak(AudioClip par1Clip, string par2Subtitle)
 	{
+		GameObject.Find ("CharacterAnimationManager").GetComponent<CharacterAnimationManager> ().makeDetectiveTalk ();
 		GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().PlayOneShot(par1Clip);
 		subtitleManager.updateSubtitles(par2Subtitle, "Detective");
 		StartCoroutine(waitAndResetSubtitles(par1Clip.length));

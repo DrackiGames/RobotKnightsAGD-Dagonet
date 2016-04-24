@@ -108,7 +108,7 @@ public class Tutorial : MonoBehaviour
                     break;
                 case 2:
                     hintTitle.text = "Interaction";
-					hintText.text = "You can interact with highlighted objects using your mouse's right click. This will move you to the object and perhaps another view";
+					hintText.text = "You can interact with highlighted objects using your mouse's right click. This can move you to the object and perhaps another puzzle view";
                     hintImageObject.sprite = hintSprite2;
                     break;
                 case 3:
@@ -173,14 +173,14 @@ public class Tutorial : MonoBehaviour
 		{
 			firstTimeInactive = true;
 			questTextManager.popUpQuest("ESCAPE THE TERMINAL ROOM - BY CRACKING THE CODE");
-			StartCoroutine(quest());
+			StartCoroutine(quest ());
 		}
 	}
 
 	private IEnumerator quest()
 	{
-		yield return new WaitForSeconds(3.75f);
+		yield return new WaitForSeconds(10);
 		
-		questTextManager.fadeIn = false;
+		questTextManager.popUpQuest ("IF STUCK WITH CONTROLS JUST PRESS THE T KEY");
 	}
 }

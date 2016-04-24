@@ -9,6 +9,10 @@ public class DetectiveBodyInteractionEvent : InteractionEvent
 
 	public override IEnumerator interactionEvents()
 	{
+		if(!puzzle2.isDetectiveFound())
+		{
+			puzzle2.foundDetective();
+		}
 		if(!puzzle2.isCompleted())
 		{
 			yield return new WaitForSeconds(0.3f);
@@ -33,20 +37,14 @@ public class DetectiveBodyInteractionEvent : InteractionEvent
 
 			GameObject.Find ("EscapeText").GetComponent<Text>().enabled = true;
 			GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = true;
-			
-			//		if (!GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().isPlaying)
-			//		{
-			//			GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().PlayOneShot(interactionLines[0]);
-			//			subtitleManager.updateSubtitles(linesForSubtitles[0]);
-			//			StartCoroutine(waitAndResetSubtitles(interactionLines[0].length));
-			//		}
 		}
 	}
 	
 	void Update()
 	{
-		if (puzzle2.inUse && Input.GetKeyDown(KeyCode.Q))
+		if (puzzle2.inUse && Input.GetKeyDown(KeyCode.Q) && !CSM.qCooldown)
 		{
+			StartCoroutine(CSM.qCoolDownProcess());
 			StartCoroutine(exitPuzzle2());
 		}
 	}
@@ -55,8 +53,6 @@ public class DetectiveBodyInteractionEvent : InteractionEvent
 	{
 		GameObject.Find ("EscapeText").GetComponent<Text>().enabled = false;
 		GameObject.Find ("EscapeText").GetComponent<Outline>().enabled = false;
-
-		Debug.Log ("FIX2");
 
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<NavMeshAgent>().ResetPath();
 

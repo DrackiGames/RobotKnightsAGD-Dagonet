@@ -9,9 +9,16 @@ public class CourtyardGateTerminalInspectionEvent : InspectionEvent
 	private string[] linesForSubtitles;
 	[SerializeField]
 	private InventoryManager inventoryManager;
+	[SerializeField]
+	private GateTerminal gateTerminal;
 	
 	public override IEnumerator inspectionEvents()
 	{
+		if(!gateTerminal.foundGateTerminal)
+		{
+			gateTerminal.foundGateTerminal = true;
+		}
+
 		if (inventoryManager.hasGotItem("batteryItem1") && inventoryManager.hasGotItem("batteryItem2"))
 		{
 			if(!GameObject.Find(CSM.currentCamera).GetComponent<AudioSource>().isPlaying)

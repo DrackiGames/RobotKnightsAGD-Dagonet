@@ -11,7 +11,6 @@ public class InspectionEvent : MonoBehaviour
     void Start()
     {
         CSM = GameObject.FindGameObjectWithTag("CameraSwitchManager").GetComponent<CameraSwitchManager>();
-        atPlayer = GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<AudioSource>();
         subtitleManager = GameObject.FindGameObjectWithTag("SubtitleManager").GetComponent<SubtitleManager>();
 		playerAnimator = GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<Animator>();
     }

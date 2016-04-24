@@ -28,6 +28,8 @@ public class SpineInspectionEvent : InspectionEvent
 			puzzle2.getInventoryManager().addToInventory("detectiveItem1");
 			//Add to puzzle 2 completion
 			puzzle2.addToCompletion();
+			//Refresh the target
+			puzzle2.getPiece("Spine").GetComponent<Target>().resetItemTextCursorAndHint();
 			//Delete object
 			Destroy(puzzle2.getPiece("Spine").gameObject);
 		}

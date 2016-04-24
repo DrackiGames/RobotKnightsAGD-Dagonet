@@ -9,9 +9,6 @@ public class TerminalCodePaper : MonoBehaviour
     public bool inUse = false;
 
     [SerializeField]
-    private Text escapeText;
-
-    [SerializeField]
     private Terminal terminal;
 	[SerializeField]
 	private PlaceParts puzzle2;
@@ -58,30 +55,7 @@ public class TerminalCodePaper : MonoBehaviour
     {
         if (inUse)
         {
-            if (transform.GetComponent<BoxCollider>().enabled)
-            {
-                transform.GetComponent<BoxCollider>().enabled = false;
-            }
-            GetComponent<Target>().resetItemTextCursorAndHint();
-
-			if(!terminal.inUse && !puzzle2.inUse)
-            {
-                escapeText.enabled = true;
-                escapeText.GetComponent<Outline>().enabled = true;
-            } 
-        }
-        else
-        {
-            if (!transform.GetComponent<BoxCollider>().enabled)
-            {
-                transform.GetComponent<BoxCollider>().enabled = true;
-            }
-
-			if(!terminal.inUse && !puzzle2.inUse)
-            {
-                escapeText.enabled = false;
-                escapeText.GetComponent<Outline>().enabled = false;
-            }
+            GetComponent<Target>().resetItemTextCursorAndHint(); 
         }
     }
 }
